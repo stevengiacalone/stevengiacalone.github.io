@@ -6,7 +6,7 @@ permalink: /publication/Konigl_etal_2017
 excerpt: 'Demonstrates that close-in, dynamically isolated, Earth-size planets may be the cores of stripped gas giants.'
 date: 2017-09-01
 venue: 'The Astrophysical Journal Letters'
-paperurl: 'http://stevengiacalone.github.io/files/Konigl_etal_2017.pdf'
+paperurl: 'https://stevengiacalone.github.io/files/Konigl_etal_2017.pdf'
 citation: 'Konigl, A., Giacalone, S., & Matsakos, T., 2017, The Astrophysical Journal Letters, 846, L13'
 ---
 
