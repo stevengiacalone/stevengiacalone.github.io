@@ -17,7 +17,7 @@ Education
 * M.A. in Astrophysics, University of California, Berkeley, 2018
 * B.A. in Physics with Honors with specialization in Astrophysics, University of Chicago, 2017
 
-Employment
+Postdoctoral Employment
 ======
 * September 2023 - Present: NSF Astronomy & Astrophysics Postdoctoral Fellow
   * California Institute of Technology
