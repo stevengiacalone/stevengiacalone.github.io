@@ -1,7 +1,7 @@
 ---
 title: "Vetting of 384 TESS Objects of Interest with TRICERATOPS and Statistical Validation of 12 Planet Candidates"
 collection: publications
-category: conferences
+category: manuscripts
 permalink: /publication/Giacalone_etal_2021
 excerpt: 'Presents TRICERATOPS, a statistical validation tool for transiting planet candidates, and analyzes hundreds of planet candidates detected by the TESS mission.'
 date: 2021-01-01
