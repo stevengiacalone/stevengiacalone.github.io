@@ -6,7 +6,7 @@ permalink: /publication/Gore_etal_2024
 excerpt: 'Reports compositions and updated properties for 52 M dwarfs and K dwarfs with confirmed planets and transiting planet candidates.'
 date: 2024-04-01
 venue: 'The Astrophysical Journal Supplement Series'
-paperurl: 'https://stevengiacalone.github.io/files/Gore_etal_2024a.pdf'
+paperurl: 'https://stevengiacalone.github.io/files/Gore_etal_2024.pdf'
 citation: 'Gore, R., Giacalone, S., Dressing, C. D., et al., 2024, The Astrophysical Journal Supplement Series, 271, 48'
 ---
 
