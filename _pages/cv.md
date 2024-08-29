@@ -13,7 +13,7 @@ Education
 ======
 * Ph.D. in Astrophysics, University of California, Berkeley, 2023
 * M.S. in Astrophysics, University of California, Berkeley, 2018
-* B.A. in Physics with Honors with specialization in Astrophysics, Universityof Chicago, 2017
+* B.A. in Physics with Honors with specialization in Astrophysics, University of Chicago, 2017
 
 Employment
 ======
