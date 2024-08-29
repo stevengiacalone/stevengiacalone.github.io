@@ -9,10 +9,12 @@ redirect_from:
 
 {% include base_path %}
 
+My full CV can be downloaded here. An abbreviated version is below.
+
 Education
 ======
 * Ph.D. in Astrophysics, University of California, Berkeley, 2023
-* M.S. in Astrophysics, University of California, Berkeley, 2018
+* M.A. in Astrophysics, University of California, Berkeley, 2018
 * B.A. in Physics with Honors with specialization in Astrophysics, University of Chicago, 2017
 
 Employment
