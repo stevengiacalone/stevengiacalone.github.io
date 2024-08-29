@@ -1,3 +1,10 @@
+---
+layout: archive
+title: "Contact"
+permalink: /contact/
+author_profile: true
+---
+
 Mailing Address
 ---------------
 Cahill Center for Astronomy and Astrophysics\
