@@ -3,7 +3,7 @@ title: "A Test of the High-eccentricity Migration Scenario for Close-in Planets"
 collection: publications
 category: manuscripts
 permalink: /publication/Giacalone_etal_2017
-excerpt: 'Comparison of theoretical outcomes of high-eccentricity migration with the population of close-in exoplanets.'
+excerpt: 'Demonstrates that high-eccentricity migration can produce close-in exoplanets with the same eccentricities and orbital periods as the observed population.'
 date: 2017-11-01
 venue: 'The Astronomical Journal'
 paperurl: 'https://stevengiacalone.github.io/files/Giacalone_etal_2017.pdf'
