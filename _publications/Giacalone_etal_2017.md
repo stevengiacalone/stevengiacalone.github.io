@@ -6,7 +6,7 @@ permalink: /publication/Giacalone_etal_2017
 excerpt: 'Comparison of theoretical outcomes of high-eccentricity migration with the population of close-in exoplanets.'
 date: 2017-11-01
 venue: 'The Astronomical Journal'
-paperurl: 'https://ui.adsabs.harvard.edu/abs/2017AJ....154..192G/abstract'
+paperurl: 'https://stevengiacalone.github.io/files/Giacalone_etal_2017.pdf'
 citation: 'Giacalone, S., Matsakos, T., & Konigl, A., 2017, The Astronomical Journal, 154, 192'
 ---
 
