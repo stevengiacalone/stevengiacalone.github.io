@@ -1,13 +1,13 @@
 ---
-title: "Paper Title Number 1"
+title: "A Test of the High-eccentricity Migration Scenario for Close-in Planets"
 collection: publications
 category: manuscripts
 permalink: /publication/Giacalone_etal_2017
 excerpt: 'Comparison of theoretical outcomes of high-eccentricity migration with the population of close-in exoplanets.'
-date: 2017-11
+date: 2017-11-01
 venue: 'The Astronomical Journal'
 paperurl: 'http://academicpages.github.io/files/paper1.pdf'
 citation: 'Giacalone, S., et al. 2017, The Astronomical Journal, 154, 192'
 ---
 
-The contents above will be part of a list of publications, if the user clicks the link for the publication than the contents of section will be rendered as a full page, allowing you to provide more information about the paper for the reader. When publications are displayed as a single page, the contents of the above "citation" field will automatically be included below this section in a smaller font.
+In the high-eccentricity migration (HEM) scenario, close-in planets reach the vicinity of the central star on high-eccentricity orbits that become circularized—with a concomitant decrease in the semimajor axis—through a tidal interaction with the star. Giant planets that arrive with periastron distances that are smaller than the Roche limit aR lose their gaseous envelopes, resulting in an inner edge to the surviving planets' distribution. The observational evidence for this effect, while extensive, is nonetheless somewhat ambiguous because of the effect of tidal orbital decay. Here, we consider another key prediction of the HEM scenario—the existence of a spatial eccentricity gradient near the location where the circularization time becomes comparable to the planet's age for typical parameters. Previous studies have already found evidence for this gradient and demonstrated that its properties are consistent with the circularization process being dominated by tidal dissipation in the planet (encapsulated by the tidal quality factor Qp'). Our work extends these treatments by constructing explicit model distributions for comparison with the data and by carrying out backward-in-time integrations using observed system parameters. We show that circularization generally occurs outside the distribution's inner edge (which defines the boundary of the so-called sub-Jovian desert) and that typically Qp' ≈ 106 in the circularization zone (to within a factor of 3). We also find tentative evidence for an eccentricity gradient in lower-mass planets, indicating that formation through HEM may be relevant down to Neptune scales.
