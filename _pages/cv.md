@@ -13,7 +13,7 @@ My full CV can be downloaded [here](https://stevengiacalone.github.io/files/CV_S
 
 Education
 --------
-* Ph.D. in Astrophysic, University of California, Berkeley, 2023
+* Ph.D. in Astrophysics, University of California, Berkeley, 2023
 * M.A. in Astrophysics, University of California, Berkeley, 2018
 * B.A. in Physics with Honors with specialization in Astrophysics, University of Chicago, 2017
 
