@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-My full CV can be downloaded here. An abbreviated version is below.
+My full CV can be downloaded [here](https://stevengiacalone.github.io/files/CV_StevenGiacalone.pdf). An abbreviated version is below.
 
 Education
 --------
@@ -24,6 +24,14 @@ Postdoctoral Employment
 
 * May 2023 - September 2023: Postdoctoral Researcher
   * University of California, Berkeley
+
+Selected Awards and Honors
+--------
+* NSF Astronomy & Astrophysics Postdoctoral Fellowship, 2023
+* STScI Lasker Postdoctoral Fellowship, 2023 (offer declined)
+* NASA FINESST Award, 2020
+* Nathan Sugarman Undergraduate Research Award, 2017
+* The University of Chicago College Research Fellowship, 2016
 
 PI Telescope Programs
 --------
