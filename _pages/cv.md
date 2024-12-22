@@ -32,7 +32,7 @@ Selected Awards and Honors
 
 PI Telescope Programs
 --------
-* Keck I Telescope (2.5 nights across 2 semesters)
+* Keck I Telescope (3.0 nights across 3 semesters)
 * Gemini North Telescope (6 hours across 1 semester)
 * Palomar 200-inch Hale Telescope (4 nights across 2 semesters)
 * WIYN Telescope (8 hours across 1 semester)
