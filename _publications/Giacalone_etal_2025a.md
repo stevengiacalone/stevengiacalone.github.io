@@ -1,5 +1,5 @@
 ---
-title: "A Hot Jupiter with a Retrograde Orbit Around A Sun-like Star and a Toy Model of Hot Jupiters in Wide Binary Star Systems"
+title: "A Hot Jupiter with a Retrograde Orbit Around a Sun-like Star and a Toy Model of Hot Jupiters in Wide Binary Star Systems"
 collection: publications
 category: manuscripts
 permalink: /publication/Giacalone_etal_2025a
