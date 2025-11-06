@@ -32,9 +32,10 @@ Selected Awards and Honors
 
 PI Telescope Programs
 --------
-* Keck I Telescope (3.0 nights across 3 semesters)
-* Gemini North Telescope (6 hours across 1 semester)
-* Palomar 200-inch Hale Telescope (4 nights across 2 semesters)
+* CHEOPS Space Telescope (78 orbits)
+* Keck I Telescope (4.0 nights across 4 semesters)
+* Gemini North Telescope (21 hours across 2 semesters)
+* Palomar 200-inch Hale Telescope (12 nights across 4 semesters)
 * WIYN Telescope (8 hours across 1 semester)
 * NASA Infrared Telescope Facility (19.2 hours across 1 semester)
 * Automated Planet Finder Telescope (14.75 nights across 3 semesters)
