@@ -5,4 +5,18 @@ permalink: /research/
 author_profile: true
 ---
 
-Page under construction.
+Origins of Close-in Brown Dwarfs
+--------
+Temp
+
+Demographics of Planets around Hot Stars
+--------
+Temp
+
+Exoplanet Discovery with TESS
+--------
+Temp
+
+Planet Formation and Evolution
+--------
+Temp
