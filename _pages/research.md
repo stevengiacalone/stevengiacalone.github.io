@@ -12,7 +12,9 @@ Brown dwarfs, objects traditionally classified as having masses 13-80x that of J
 
 ### Orbital Tilts
 
-The angle between the hot star spin axis and the planet orbital angular momentum vector, often referred to as "stellar obliquity," reveals the dynamical history of the planet (or brown dwarf, in my case).
+The angle between the hot star spin axis and the planet orbital angular momentum vector, often referred to as "stellar obliquity," reveals the dynamical history of the planet (or brown dwarf, in my case). If these two angles are aligned, it mostly likely means the brown dwarf formed in and migrated through a protoplantary disk, similarly to a planet. If the aren't aligned, it most likely means the brown dwarf was "kicked" inward by another object or was dynamically captured by the star. To determine how close-in brown dwarfs arrived at their current orbits, I co-founded the OATMEAL survey, which is more than doubling the number of systems with stellar obliquity measurements and enabling population-level studies of brown dwarf orbits.
+
+To learn more, see [Giacalone et al. 2024](https://stevengiacalone.github.io/files/Giacalone_etal_2024.pdf) and [Giacalone et al. 2025](https://stevengiacalone.github.io/files/Giacalone_etal_2025a.pdf).
 
 ### Stellar Metallicities
 
