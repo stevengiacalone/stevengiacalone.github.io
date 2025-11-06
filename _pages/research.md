@@ -16,6 +16,9 @@ The angle between the hot star spin axis and the planet orbital angular momentum
 
 To learn more, see [Giacalone et al. 2024](https://stevengiacalone.github.io/files/Giacalone_etal_2024.pdf) and [Giacalone et al. 2025](https://stevengiacalone.github.io/files/Giacalone_etal_2025a.pdf).
 
+![](https://stevengiacalone.github.io/files/fig1.pdf)
+*Figures from Giacalone et al. (2024) and Giacalone et al. (2025), which display the Doppler shadow of GPX-1b and Rossiter-McLaughlin effect signal of KELT-23Ab, respectively. These spectroscopic signals were used to calculate the stellar obliquities of the two systems.*
+
 ### Stellar Metallicities
 
 ### Atmospheric Compositions
