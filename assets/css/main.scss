@@ -38,19 +38,7 @@
 @import "vendor/font-awesome/solid";
 @import "vendor/font-awesome/brands";
 @import "vendor/magnific-popup/magnific-popup";
-@import "print";
-
-@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
-@import "minimal-mistakes"; // main partials
-
-/* Custom link colors */
-a {
-  color: #0066cc; /* Change this to your desired link color */
-  
-  &:visited {
-    color: #551a8b; /* Visited link color */
-  }
-  
+@import "print";  
   &:hover {
     color: #003d7a; /* Hover state color */
   }
