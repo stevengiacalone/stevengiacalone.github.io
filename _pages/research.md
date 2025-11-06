@@ -5,7 +5,7 @@ permalink: /research/
 author_profile: true
 ---
 
-## Origins of Close-in Brown Dwarfs
+## Origin of Close-in Brown Dwarfs
 -----------------------------------
 
 Brown dwarfs, objects traditionally classified as having masses 13-80x that of Jupiter, are believed to form far from their host stars or free floating. The presence of brown dwarfs orbiting close to their host stars has therefore been a mystery since their discovery decades ago. Did these massive companions migrate inward from initial distant orbits or did they form in situ via some unknown mechanims? To answer this question, I use ground-based observations that reveal the orbits, host star properties, and atmospheric compositions of brown dwarfs.
@@ -31,7 +31,10 @@ I am currently leading a survey to measure the atmospheric compositions of close
 ## Demographics of Small Planets around Hot Stars
 -----------------------------------
 
-Temp
+For my PhD thesis, I calculated the prevalence of small planets orbiting close to A-type stars for the first time. A-type stars are hot stars that are roughly twice as large as the Sun. These properties may cause planets around these stars to have different properties as those around Sun-like stars, but they also make it more challenging to find planets in orbit around them. This challenge led early planet-hunting surveys (e.g., Kepler) to largely avoided them. Because TESS is observing all stars across nearly the entire sky, it allows us to finally study planets around A-type stars. In [Giacalone & Dressing (2025)](https://stevengiacalone.github.io/files/Giacalone_Dressing_2025.pdf), I found that planets smaller than Jupiter with orbital periods under 10 days are significantly more rare around A-type stars than cooler stars. This difference is likely to due to the fact that dust sublimates farther from A-type stars due to their high temperatures, which prevents small planets from forming in and migrating to these close-in orbits.
+
+![](https://stevengiacalone.github.io/files/fig3.png)
+*Figure from Giacalone & Dressing (2025), which shows the occurrence rate of sub-Neptune-size planets orbiting M-, K-, G-, F-, and A-type stars (left to right). The prevalence of these small planets decreases monatonically with increasing stellar effective temperature, indicating that the temperature of the inner protoplanetary disk may play an important role in determining whether or not planets can migrate close to the star.*
 
 ## Exoplanet Discovery with TESS
 -----------------------------------
@@ -41,4 +44,6 @@ Temp
 ## Planet Formation and Evolution
 -----------------------------------
 
-Temp
+We can learn about planet formation and evolution by comparing observations to theoretical models. In [Giacalone et al. (2017)](https://stevengiacalone.github.io/files/Giacalone_etal_2017.pdf) and [Konigl et al. (2017)](https://stevengiacalone.github.io/files/Konigl_etal_2017.pdf), I compared numerical simulations of high-eccentricity tidal migration, a mechanism for transporting planets from wide-separation orbits to close-in orbits, to the population of observed close-in planets. Through this experiment, we showed that this migration mechanism can reproduce the eccentricty distribution of hot Jupiters and the orbital period distribution of dynamically isolated rocky planets, shedding light on the presence of planets in regions where they are unable to form.
+
+In [Giacalone et al. (2019)](https://stevengiacalone.github.io/files/Giacalone_etal_2019.pdf), I developed numerical simulations of dust being transported radially outward in protoplanetary disks via magnetocentrifugal winds. Outward transport is believed to occur in disks due to presence of calcium-aluminum-rich inclusions in carbonaceous chondrite meteorites and high levels of crystalline dust in the outer regions of protoplanetary disks, which could have only formed in high temperature environments like those close to the host star. I showed that this disk wind transport mechanism can explain the observed dust crystallinity fractions in the outer regions of protoplanetary disks, suggesting that it may play an important role in the planet formation process.
