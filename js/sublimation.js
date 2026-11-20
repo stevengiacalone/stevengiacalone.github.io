@@ -17,17 +17,20 @@
   // Radii in units of the panel half-width.
   var SYSTEMS = [
     { star: 0.045, glow: 0.16, core: [255, 236, 190], halo: [255, 196, 92],
-      rsub: 0.24, rout: 0.95, r0: 0.82, rend: 0.105,
-      tideText: "Tides pull it closer to the star", endText: "It ends up on a close-in orbit", seed: 7 },
+      rsub: 0.24, rout: 0.95, r0: 0.82, rend: 0.105, rtess: 0.19, tessLabelInside: false,
+      tideText: "Tides pull it closer to the star", endText: "It ends up on a close-in orbit",
+      tessText: "Planets end up where TESS can detect them", seed: 7 },
     { star: 0.075, glow: 0.30, core: [240, 246, 255], halo: [150, 190, 255],
-      rsub: 0.58, rout: 0.95, r0: 0.82, rend: 0.575,
-      tideText: "Too far away for tides to act", endText: "It is stranded on a wider orbit", seed: 11 }
+      rsub: 0.58, rout: 0.95, r0: 0.82, rend: 0.575, rtess: 0.48, tessLabelInside: true,
+      tideText: "Too far away for tides to act", endText: "It is stranded on a wider orbit",
+      tessText: "No planets end up where TESS can detect them", seed: 11 }
   ];
 
   // Timeline (ms)
   var SLOW = 2;   // overall playback slowdown
   var T_FORM = 800 * SLOW, T_MIG = 4800 * SLOW, T_PARK = 5800 * SLOW, T_DISP = 7200 * SLOW,
-      T_TIDE = 10000 * SLOW, T_END = 11600 * SLOW;
+      T_TIDE = 10000 * SLOW, T_HOLD = 11400 * SLOW, T_GONE = 12200 * SLOW, T_HL = 13000 * SLOW,
+      T_END = 16000 * SLOW;
 
   function rng(seed) {
     return function () {
@@ -78,7 +81,8 @@
     if (t < T_PARK) return "It stalls where the dust ends";
     if (t < T_DISP) return "The disk disperses";
     if (t < T_TIDE) return s.tideText;
-    return s.endText;
+    if (t < T_GONE) return s.endText;
+    return s.tessText;
   }
 
   // Integrate planet angle so its speed follows Kepler's law as it migrates.
@@ -89,7 +93,7 @@
     s.rNow = r;
   }
 
-  function draw(i, t) {
+  function draw(i, t, keepPlanet) {
     var s = SYSTEMS[i], g = fit(cvs[i]); if (!g) return;
     var c = g.c, w = g.w, h = g.h, cx = w / 2, cy = h / 2 - 8, R = Math.min(w, h) / 2 * 0.9;
     c.clearRect(0, 0, w, h);
@@ -126,6 +130,21 @@
     c.strokeText("dust sublimation radius", cx, ly);
     c.fillStyle = rgba([255, 214, 176], 0.95); c.fillText("dust sublimation radius", cx, ly);
 
+    // TESS-sensitive region (end of the sequence)
+    var hl = keepPlanet ? 1 : ease((t - T_GONE) / (T_HL - T_GONE));
+    if (hl > 0.01) {
+      var TZ = [110, 225, 200];
+      var zg = c.createRadialGradient(cx, cy, 0, cx, cy, s.rtess * R);
+      zg.addColorStop(0, rgba(TZ, 0.10 * hl)); zg.addColorStop(1, rgba(TZ, 0.30 * hl));
+      c.fillStyle = zg; c.beginPath(); c.arc(cx, cy, s.rtess * R, 0, Math.PI * 2); c.fill();
+      c.strokeStyle = rgba(TZ, 0.85 * hl); c.lineWidth = 1.5;
+      c.beginPath(); c.arc(cx, cy, s.rtess * R, 0, Math.PI * 2); c.stroke();
+      c.font = "11px " + SANS; c.textAlign = "center";
+      var ty = s.tessLabelInside ? cy + s.rtess * R - 9 : cy + s.rtess * R + 15;
+      c.lineWidth = 3; c.strokeStyle = rgba([13, 14, 17], 0.85 * hl); c.strokeText("TESS-sensitive region", cx, ty);
+      c.fillStyle = rgba([170, 240, 222], hl); c.fillText("TESS-sensitive region", cx, ty);
+    }
+
     // Star
     var sg = c.createRadialGradient(cx, cy, 0, cx, cy, s.glow * R);
     sg.addColorStop(0, rgba(s.core, 1)); sg.addColorStop(0.28, rgba(s.halo, 0.55)); sg.addColorStop(1, rgba(s.halo, 0));
@@ -133,9 +152,10 @@
     c.fillStyle = rgba(s.core, 1); c.beginPath(); c.arc(cx, cy, s.star * R, 0, Math.PI * 2); c.fill();
 
     // Planet and its trail
-    var appear = clamp01(t / (500 * SLOW));
+    var appear = keepPlanet ? 1 : clamp01(t / (500 * SLOW)) * (1 - ease((t - T_HOLD) / (T_GONE - T_HOLD)));
     var px = cx + Math.cos(s.theta) * s.rNow * R, py = cy + Math.sin(s.theta) * s.rNow * R;
     s.trail.push([px, py]); if (s.trail.length > 46 * SLOW) s.trail.shift();
+    if (appear > 0.01) {
     for (var j = 1; j < s.trail.length; j++) {
       c.strokeStyle = rgba([190, 222, 255], 0.5 * j / s.trail.length * appear); c.lineWidth = 1.6;
       c.beginPath(); c.moveTo(s.trail[j - 1][0], s.trail[j - 1][1]); c.lineTo(s.trail[j][0], s.trail[j][1]); c.stroke();
@@ -143,6 +163,7 @@
     c.beginPath(); c.arc(px, py, 4.2, 0, Math.PI * 2);
     c.fillStyle = rgba([200, 230, 255], appear); c.fill();
     c.lineWidth = 1.5; c.strokeStyle = rgba([13, 14, 17], appear); c.stroke();
+    }
 
     // Stage caption
     c.font = "13px " + SANS; c.textAlign = "center"; c.fillStyle = INK;
@@ -163,7 +184,7 @@
     // Final state: planets at their end orbits, disk shown faintly for context.
     for (var i = 0; i < 2; i++) {
       var s = SYSTEMS[i]; s.trail = []; s.theta = -Math.PI / 4; s.rNow = s.rend;
-      draw(i, T_END - 1);
+      draw(i, T_END - 1, true);
     }
   }
 
