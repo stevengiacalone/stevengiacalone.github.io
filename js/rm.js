@@ -272,7 +272,7 @@
     for (var i5 = 0; i5 < NVL; i5++) { var x5 = X(vGrid[i5]); if (i5 === 0) c.moveTo(x5, Y(cur[i5])); else c.lineTo(x5, Y(cur[i5])); }
     c.stroke();
     c.fillStyle = C.faint; c.font = "11px " + SANS; c.textAlign = "center";
-    c.fillText("← toward us   velocity   away →", (x0 + x1) / 2, h - 10);
+    c.fillText("← bluer          redder →", (x0 + x1) / 2, h - 10);
     c.save(); c.translate(12, (y0 + y1) / 2); c.rotate(-Math.PI / 2);
     c.fillText("brightness", 0, 0); c.restore();
   }
