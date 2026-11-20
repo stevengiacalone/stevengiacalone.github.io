@@ -31,7 +31,7 @@ excerpt: 'One-sentence summary shown on the paper page.'
 date: 2026-03-01
 year: 2026
 venue: 'The Astronomical Journal'
-journal: "AJ"            # tag on the list: AJ, ApJ, ApJL, ApJS, PASP (add a colour in site.css for others)
+journal: "AJ"            # short journal name (not currently displayed)
 volume: "171, 12"
 paperurl: '/files/Giacalone_etal_2026.pdf'
 scix: "https://scixplorer.org/abs/…/abstract"

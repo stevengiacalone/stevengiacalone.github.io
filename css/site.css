@@ -19,14 +19,6 @@
   --measure:    52rem;
   --prose:      44rem;
 
-  /* Journal tag dots. The label beside each dot always names the journal,
-     so colour is never the only cue. */
-  --j-aj:   #e07a45;
-  --j-apj:  #4f8fe6;
-  --j-apjl: #2aa57c;
-  --j-apjs: #a58be8;
-  --j-pasp: #d4a72c;
-
   --serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
   --sans:  system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
@@ -238,21 +230,6 @@ h2 + .subhead { margin-top: 0; }
   padding: 0.05rem 0.45rem; background: var(--card);
 }
 .pub-links a:hover { color: var(--accent); border-color: var(--accent); }
-
-.tag {
-  display: inline-flex; align-items: center; gap: 0.34rem;
-  font-family: var(--sans); font-size: 0.63rem; font-weight: 650; font-style: normal;
-  letter-spacing: 0.07em; text-transform: uppercase;
-  color: var(--ink-soft); background: var(--rule-soft);
-  border: 1px solid var(--rule); border-radius: 3px;
-  padding: 0.11rem 0.42rem; margin-right: 0.55rem; vertical-align: 0.14em; white-space: nowrap;
-}
-.tag::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--ink-faint); }
-.tag-aj::before   { background: var(--j-aj); }
-.tag-apj::before  { background: var(--j-apj); }
-.tag-apjl::before { background: var(--j-apjl); }
-.tag-apjs::before { background: var(--j-apjs); }
-.tag-pasp::before { background: var(--j-pasp); }
 
 /* Single paper page */
 .kicker { font-family: var(--sans); font-size: 0.82rem; margin-bottom: 1.2rem; }
