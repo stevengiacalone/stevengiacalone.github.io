@@ -25,7 +25,9 @@
   ];
 
   // Timeline (ms)
-  var T_FORM = 800, T_MIG = 4800, T_PARK = 5800, T_DISP = 7200, T_TIDE = 10000, T_END = 11600;
+  var SLOW = 2;   // overall playback slowdown
+  var T_FORM = 800 * SLOW, T_MIG = 4800 * SLOW, T_PARK = 5800 * SLOW, T_DISP = 7200 * SLOW,
+      T_TIDE = 10000 * SLOW, T_END = 11600 * SLOW;
 
   function rng(seed) {
     return function () {
@@ -82,7 +84,7 @@
   // Integrate planet angle so its speed follows Kepler's law as it migrates.
   function advance(s, t, dt) {
     var r = radiusAt(s, t);
-    var omega = Math.min(2 * Math.PI / 0.55, (2 * Math.PI / 3.2) * Math.pow(s.r0 / r, 1.5)); // rad/s
+    var omega = Math.min(2 * Math.PI / (0.55 * SLOW), (2 * Math.PI / (3.2 * SLOW)) * Math.pow(s.r0 / r, 1.5)); // rad/s
     s.theta = (s.theta || 0) + omega * dt / 1000;
     s.rNow = r;
   }
@@ -103,7 +105,7 @@
       c.fillStyle = gr;
       c.beginPath(); c.arc(cx, cy, s.rout * R, 0, Math.PI * 2); c.arc(cx, cy, s.rsub * R, 0, Math.PI * 2, true); c.fill("evenodd");
       // Dust grains, rotating with Keplerian speed (slowly)
-      var rot = t / 1000;
+      var rot = t / 1000 / SLOW;
       for (var k = 0; k < s.dust.length; k++) {
         var d = s.dust[k];
         var om = 0.35 * Math.pow(s.r0 / d.r, 1.5);
@@ -131,9 +133,9 @@
     c.fillStyle = rgba(s.core, 1); c.beginPath(); c.arc(cx, cy, s.star * R, 0, Math.PI * 2); c.fill();
 
     // Planet and its trail
-    var appear = clamp01(t / 500);
+    var appear = clamp01(t / (500 * SLOW));
     var px = cx + Math.cos(s.theta) * s.rNow * R, py = cy + Math.sin(s.theta) * s.rNow * R;
-    s.trail.push([px, py]); if (s.trail.length > 46) s.trail.shift();
+    s.trail.push([px, py]); if (s.trail.length > 46 * SLOW) s.trail.shift();
     for (var j = 1; j < s.trail.length; j++) {
       c.strokeStyle = rgba([190, 222, 255], 0.5 * j / s.trail.length * appear); c.lineWidth = 1.6;
       c.beginPath(); c.moveTo(s.trail[j - 1][0], s.trail[j - 1][1]); c.lineTo(s.trail[j][0], s.trail[j][1]); c.stroke();
