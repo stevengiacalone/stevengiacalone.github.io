@@ -13,7 +13,7 @@
 - id: tess
   title: "Exoplanet discovery with TESS"
   role: "Software · TRICERATOPS"
-  blurb: "A Bayesian tool that separates real planets from false positives using TESS photometry alone, now credited with over 100 planet discoveries."
+  blurb: "A Bayesian tool that separates real planets from false positives using TESS photometry alone, now credited with over 200 planet discoveries."
 
 - id: formation
   title: "Planet formation and evolution"
