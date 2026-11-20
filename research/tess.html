@@ -25,6 +25,47 @@ description: "Exoplanet discovery with TESS and TRICERATOPS, a Bayesian tool for
   more than 200 planet discoveries and is widely used across the exoplanet community.
 </p>
 
+<figure class="rm-demo tri-demo" aria-labelledby="tri-caption">
+  <div class="rm-controls">
+    <p class="tri-status" id="tri-status" aria-live="off">Transit 1 of 4</p>
+    <button type="button" id="tri-play" class="rm-play">Pause</button>
+  </div>
+  <div class="tri-rows">
+    <div class="tri-row" id="tri-row-pl">
+      <div class="tri-head">
+        <p class="tri-name"><span class="tri-num">Model 1</span> Transiting planet</p>
+        <span class="tri-verdict tri-good" id="tri-v-pl" hidden>Most probable</span>
+        <div class="tri-prob"><span class="tri-bar"><span id="tri-bar-pl" style="width:50%"></span></span><span class="tri-pct" id="tri-p-pl">50%</span></div>
+      </div>
+      <div class="tri-panels">
+        <canvas id="tri-sys-pl" class="tri-sys" role="img" aria-label="A planet crossing in front of the target star."></canvas>
+        <canvas id="tri-lc-pl" class="tri-lc" role="img" aria-label="Phase-folded light curve with the best-fitting planet model: a flat-bottomed, U-shaped dip that matches the data."></canvas>
+      </div>
+    </div>
+    <div class="tri-row" id="tri-row-eb">
+      <div class="tri-head">
+        <p class="tri-name"><span class="tri-num">Model 2</span> Hierarchical eclipsing binary</p>
+        <span class="tri-verdict tri-bad" id="tri-v-eb" hidden>Unlikely</span>
+        <div class="tri-prob"><span class="tri-bar"><span id="tri-bar-eb" style="width:50%"></span></span><span class="tri-pct" id="tri-p-eb">50%</span></div>
+      </div>
+      <div class="tri-panels">
+        <canvas id="tri-sys-eb" class="tri-sys" role="img" aria-label="The target star and a bound pair of fainter stars that eclipse each other, all within one TESS pixel."></canvas>
+        <canvas id="tri-lc-eb" class="tri-lc" role="img" aria-label="The same light curve with the best-fitting eclipsing binary model: a V-shaped dip that does not match the data."></canvas>
+      </div>
+    </div>
+  </div>
+  <figcaption id="tri-caption">
+    How TRICERATOPS works, in its simplest form. A dip in a star's brightness could come from a planet, or from
+    something else, such as a pair of stars bound to the target that eclipse each other. TESS pixels are large,
+    so their light blends with the target's and their eclipse looks like a shallow dip. TRICERATOPS fits each
+    scenario to the light curve and weighs how well each explains the data, together with what we know about the
+    star and its neighbors, to calculate the probability of each. Here, as more transits are folded together, the
+    dip's flat bottom and sharp edges match the planet model, while the eclipsing pair's V-shaped dip fits poorly.
+    The real tool considers many more scenarios.
+  </figcaption>
+</figure>
+<script src="{{ '/js/triceratops.js' | relative_url }}" defer></script>
+
 <h3>What it has found</h3>
 <p>
   Among its discoveries are 13 hot, potentially rocky planets that are prime targets for the James Webb Space
