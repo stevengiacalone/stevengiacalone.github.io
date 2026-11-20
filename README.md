@@ -11,7 +11,7 @@ builds automatically on every push. No theme, no framework, no web fonts.
 | About paragraphs                   | `index.html`                           |
 | Research cards on the home page    | `_data/research.yml`                   |
 | Long-form research page            | `research.html`                        |
-| Positions, education, awards, telescope time, teaching, mentoring, service, outreach, talks | `_data/experience.yml` |
+| CV (linked from the header and nav) | replace `files/CV_StevenGiacalone.pdf` (keep the name) |
 | Publications                       | `_publications/*.md` (one file per paper) |
 | Colours, spacing, type             | `css/site.css` (tokens at the top)     |
 | Star-field background              | `js/sky.js`                            |
@@ -19,7 +19,8 @@ builds automatically on every push. No theme, no framework, no web fonts.
 ### Adding a paper
 
 Copy any file in `_publications/`, rename it, and update the front matter. The body is the
-abstract. Put the PDF in `files/`.
+abstract. Put the PDF in `files/`. Only papers with `first_author: true` appear in the list on
+the home page; the others keep their pages so old links still work.
 
 ```yaml
 ---
@@ -33,8 +34,10 @@ venue: 'The Astronomical Journal'
 journal: "AJ"            # tag on the list: AJ, ApJ, ApJL, ApJS, PASP (add a colour in site.css for others)
 volume: "171, 12"
 paperurl: '/files/Giacalone_etal_2026.pdf'
-ads: "https://ui.adsabs.harvard.edu/abs/…/abstract"
+scix: "https://scixplorer.org/abs/…/abstract"
+arxiv: "https://arxiv.org/abs/…"   # optional, adds an arXiv button on the paper page
 layout: paper
+first_author: true
 authors:
   - "S. Giacalone"
   - "A. Coauthor"
@@ -46,16 +49,10 @@ Abstract text…
 Papers are grouped by `year` and sorted by `date`, newest first. `S. Giacalone` is bolded
 automatically.
 
-### Institution badges
-
-Each position/education entry shows a small coloured badge (`mark` + `hue`). To use a real
-logo instead, drop an image in `images/logos/` and add `logo: /images/logos/caltech.png`
-to that entry.
-
 ## Old URLs
 
-`/publications/`, `/cv/`, `/resume/`, `/contact/`, `/about/` and `/outreach/` redirect to the
-matching section of the home page. `/research/` and `/publication/<paper>` still exist.
+`/publications/`, `/contact/` and `/about/` redirect to the matching section of the home page;
+`/cv/` and `/resume/` go straight to the CV PDF; `/outreach/` goes to the home page. `/research/` and `/publication/<paper>` still exist.
 
 ## Preview locally
 

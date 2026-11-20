@@ -1,7 +1,7 @@
 {%- comment -%}
-  Papers grouped by year. Pass summaries=true to show the one-line summary.
+  First-author papers (first_author: true), grouped by year. Pass summaries=true to show the one-line summary.
 {%- endcomment -%}
-{%- assign papers = site.publications | sort: "date" | reverse -%}
+{%- assign papers = site.publications | where: "first_author", true | sort: "date" | reverse -%}
 {%- assign years = papers | group_by: "year" -%}
 {%- for group in years %}
 <p class="year">{{ group.name }}</p>
@@ -14,7 +14,7 @@
     {%- if include.summaries %}
     <p class="pub-summary">{{ p.excerpt | strip_html }}</p>
     {%- endif %}
-    <p class="pub-links"><a href="{{ p.paperurl | relative_url }}">PDF</a><a href="{{ p.ads }}">ADS</a><a href="{{ p.url | relative_url }}">Abstract</a></p>
+    <p class="pub-links"><a href="{{ p.paperurl | relative_url }}">PDF</a><a href="{{ p.scix }}">SciX</a><a href="{{ p.url | relative_url }}">Abstract</a></p>
   </li>
   {%- endfor %}
 </ul>

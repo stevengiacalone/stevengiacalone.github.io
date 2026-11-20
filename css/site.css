@@ -2,7 +2,7 @@
    stevengiacalone.github.io
    Hand-written stylesheet. No framework, no web fonts, no CDN.
    Order: tokens, chrome, type, landing, research, publications,
-   experience, footer, responsive, print.
+   contact, footer, responsive, print.
    --------------------------------------------------------------------------- */
 
 :root {
@@ -272,83 +272,7 @@ h2 + .subhead { margin-top: 0; }
 .tldr .minor { display: block; }
 .abstract p { max-width: var(--prose); font-size: 0.98rem; color: var(--ink-soft); }
 
-/* --- Experience --------------------------------------------------------- */
-.jobs { list-style: none; margin: 0; padding: 0; }
-.job {
-  display: grid; grid-template-columns: 2.6rem minmax(0, 1fr); gap: 1rem;
-  padding: 0.85rem 0; border-bottom: 1px solid var(--rule-soft);
-}
-.job:last-child { border-bottom: none; }
-.logo { width: 2.6rem; height: 2.6rem; border-radius: 7px; object-fit: contain; background: #fff; }
-.mark {
-  display: grid; place-items: center;
-  font-family: var(--sans); font-size: 0.6rem; font-weight: 800; letter-spacing: 0.04em;
-  color: var(--ink);
-  background: color-mix(in srgb, var(--hue) 22%, var(--card));
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--hue) 60%, transparent);
-}
-.job-org { font-family: var(--sans); font-size: 0.97rem; font-weight: 620; line-height: 1.4; }
-.job-meta { font-weight: 400; font-size: 0.82rem; color: var(--ink-faint); }
-.job-pos { list-style: none; margin: 0.25rem 0 0; padding: 0; }
-.job-pos li {
-  display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
-  font-size: 0.93rem; color: var(--ink-soft); padding: 0.12rem 0;
-}
-.job-pos.railed { border-left: 1.5px solid var(--rule); padding-left: 0.8rem; margin-left: 0.1rem; }
-.job-pos.railed li { position: relative; }
-.job-pos.railed li::before {
-  content: ""; position: absolute; left: calc(-0.8rem - 4px); top: 0.72em;
-  width: 6.5px; height: 6.5px; border-radius: 50%;
-  background: var(--bg); border: 1.5px solid var(--ink-faint);
-}
-.job-pos.railed li:first-child::before { border-color: var(--accent); background: var(--accent); }
-.pos-title { min-width: 0; }
-.pos-note { display: block; font-size: 0.84rem; color: var(--ink-faint); }
-.pos-when { flex: 0 0 auto; font-family: var(--sans); font-size: 0.78rem; color: var(--ink-faint); white-space: nowrap; }
-
-.rows { list-style: none; margin: 0; padding: 0; }
-.rows li {
-  display: grid; grid-template-columns: 7.6rem minmax(0, 1fr) auto; column-gap: 1rem;
-  align-items: baseline; padding: 0.42rem 0; border-bottom: 1px solid var(--rule-soft);
-}
-.rows li:last-child { border-bottom: none; }
-.row-when { font-family: var(--sans); font-size: 0.78rem; color: var(--ink-faint); white-space: nowrap; font-variant-numeric: tabular-nums; }
-.row-what { font-size: 0.93rem; line-height: 1.45; }
-.row-note { display: block; font-size: 0.84rem; color: var(--ink-faint); }
-.row-link { font-family: var(--sans); font-size: 0.78rem; white-space: nowrap; }
-.row-link a { color: var(--ink-faint); border-bottom: none; }
-.row-link a:hover { color: var(--accent); }
-.pill {
-  font-family: var(--sans); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em;
-  text-transform: uppercase; color: var(--accent);
-  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
-  border-radius: 3px; padding: 0.02rem 0.32rem; margin-left: 0.3rem; vertical-align: 0.12em;
-}
-
-.scope-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 2rem; }
-.scopes { list-style: none; margin: 0 0 0.6rem; padding: 0; }
-.scopes li {
-  display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
-  padding: 0.36rem 0; border-bottom: 1px solid var(--rule-soft); font-size: 0.92rem;
-}
-.scope-inst { font-size: 0.8rem; color: var(--ink-faint); }
-.scope-inst::before { content: " · "; }
-.scope-amt { font-family: var(--sans); font-size: 0.8rem; color: var(--ink-soft); white-space: nowrap; font-variant-numeric: tabular-nums; }
-.minor-note { font-size: 0.84rem; color: var(--ink-faint); }
-
-.talks summary {
-  cursor: pointer; list-style: none; font-size: 0.93rem; color: var(--ink-soft);
-  padding: 0.6rem 0.9rem; border: 1px solid var(--rule); border-radius: 6px;
-  background: color-mix(in srgb, var(--card) 88%, transparent);
-  display: flex; justify-content: space-between; gap: 1rem;
-}
-.talks summary::-webkit-details-marker { display: none; }
-.talks summary:hover { border-color: var(--accent); }
-.summary-hint { font-family: var(--sans); font-size: 0.78rem; color: var(--accent); }
-.summary-hint::after { content: " ↓"; }
-.talks[open] .summary-hint::after { content: " ↑"; }
-.talks[open] summary { margin-bottom: 0.6rem; }
-
+/* --- Contact ------------------------------------------------------------ */
 .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
 .contact p:not(.minor) { font-size: 0.97rem; }
 
@@ -373,12 +297,7 @@ h2 + .subhead { margin-top: 0; }
   .topics { grid-template-columns: 1fr; }
   .thread { display: block; }
   .thread-index { font-size: 0.95rem; margin-bottom: 0.2rem; }
-  .rows li { grid-template-columns: 1fr auto; }
-  .row-when { grid-column: 1 / -1; }
-  .scope-grid, .contact { grid-template-columns: 1fr; gap: 1rem; }
-  .scope-inst { display: block; }
-  .scope-inst::before { content: none; }
-  .job-pos li { flex-direction: column; gap: 0; }
+  .contact { grid-template-columns: 1fr; gap: 1rem; }
 }
 
 /* --- Print -------------------------------------------------------------- */
@@ -386,5 +305,4 @@ h2 + .subhead { margin-top: 0; }
   :root { --ink: #111; --ink-soft: #333; --ink-faint: #666; --bg: #fff; --card: #fff; --rule: #ccc; --rule-soft: #e5e5e5; }
   .sky, .skip-link, .masthead nav, .site-foot, .idlinks { display: none; }
   .masthead { position: static; }
-  .talks > :not(summary) { display: block; }
 }

@@ -2,7 +2,6 @@
 layout: base
 title: ""
 ---
-{%- assign ex = site.data.experience -%}
 
 <div class="idcard">
   <img class="portrait" src="{{ site.author.photo | relative_url }}" width="148" height="148"
@@ -21,11 +20,13 @@ title: ""
 <h2 id="about">About</h2>
 <div class="bio">
   <p>
-    I am an NSF Astronomy &amp; Astrophysics Postdoctoral Fellow at Caltech. I study how exoplanets
-    form and evolve in different environments by detecting and characterizing them with ground-based
-    telescopes and large datasets from space missions like <a href="https://tess.mit.edu/">TESS</a>.
-    Right now I am comparing the orbits, atmospheres, and host stars of giant planets and brown dwarfs
-    to work out whether the two form the same way.
+    I am a Postdoctoral Researcher at the <a href="https://nexsci.caltech.edu/">NASA Exoplanet Science
+    Institute</a> (NExScI) at Caltech/IPAC, and was previously an NSF Astronomy &amp; Astrophysics
+    Postdoctoral Fellow at Caltech. I study how planetary systems form and evolve by connecting
+    individual exoplanet discoveries to population-level demographics, using ground-based telescopes
+    and large datasets from space missions like <a href="https://tess.mit.edu/">TESS</a>. Right now I am
+    comparing the orbits, atmospheres, and host stars of giant planets and brown dwarfs to work out
+    whether the two form the same way.
   </p>
   <p>
     I earned my PhD in Astrophysics from UC Berkeley in 2023, working with
@@ -58,53 +59,11 @@ title: ""
 
 <h2 id="publications">Publications</h2>
 <p class="section-note">
-  More than 100 peer-reviewed publications in total; the full list is on
-  <a href="{{ site.author.nasaads }}">ADS</a>, <a href="{{ site.author.googlescholar }}">Google Scholar</a>, and
-  <a href="{{ site.author.arxiv }}">arXiv</a>. Papers I led or co-led are below.
+  More than 140 peer-reviewed publications in total; the full list is on
+  <a href="{{ site.author.scix }}">SciX</a>, <a href="{{ site.author.googlescholar }}">Google Scholar</a>, and
+  <a href="{{ site.author.arxiv }}">arXiv</a>. My first-author papers are below.
 </p>
 {% include publist.html %}
-
-<h2 id="experience">Experience</h2>
-
-<h3 class="subhead">Positions</h3>
-{% include orgs.html items=ex.positions %}
-
-<h3 class="subhead">Education</h3>
-{% include orgs.html items=ex.education %}
-
-<h3 class="subhead">Awards &amp; honors</h3>
-{% include rows.html items=ex.awards %}
-
-<h3 class="subhead">Telescope time</h3>
-<div class="scope-grid">
-  <div>
-    <p class="minor">As PI</p>
-    {% include scopes.html items=ex.telescopes_pi %}
-  </div>
-  <div>
-    <p class="minor">As Co-I, space telescopes</p>
-    {% include scopes.html items=ex.telescopes_coi %}
-    <p class="minor-note">Plus Co-I time on Keck, Gemini North, WIYN, IRTF, Shane, APF and SMARTS. Details in the <a href="{{ site.author.cv | relative_url }}">CV</a>.</p>
-  </div>
-</div>
-
-<h3 class="subhead">Teaching</h3>
-{% include rows.html items=ex.teaching %}
-
-<h3 class="subhead">Mentoring</h3>
-{% include rows.html items=ex.advising %}
-
-<h3 class="subhead">Service</h3>
-{% include rows.html items=ex.service %}
-
-<h3 class="subhead">Outreach</h3>
-{% include rows.html items=ex.outreach %}
-
-<h3 class="subhead">Talks</h3>
-<details class="talks">
-  <summary>{{ ex.talks.size }} conference and seminar talks since 2018 <span class="summary-hint">Show all</span></summary>
-  {% include rows.html items=ex.talks %}
-</details>
 
 <h2 id="contact">Contact</h2>
 <div class="contact">

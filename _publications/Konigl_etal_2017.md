@@ -8,6 +8,7 @@ date: 2017-09-01
 venue: 'The Astrophysical Journal Letters'
 paperurl: '/files/Konigl_etal_2017.pdf'
 layout: paper
+first_author: false
 year: 2017
 authors:
   - "A. Königl"
@@ -15,7 +16,7 @@ authors:
   - "T. Matsakos"
 journal: "ApJL"
 volume: "846, L13"
-ads: "https://ui.adsabs.harvard.edu/abs/2017ApJ...846L..13K/abstract"
+scix: "https://scixplorer.org/abs/2017ApJ...846L..13K/abstract"
 ---
 
 A distinct population of planetary systems that contain dynamically isolated, Earth-size planets with orbital periods P_orb ∼ 1 day was recently identified in an analysis of data from the Kepler planet candidate catalog. We argue that these objects could represent the remnant rocky cores of giant planets that arrived at the stellar vicinity on high-eccentricity orbits and were rapidly stripped of their gaseous envelopes after crossing their respective Roche limits (RLs) a_R. In this picture, objects with P_orb ≳ 1 day are mostly “early” cores that originated in planets with an initial periastron distance a_per ≤ a_R; they had high initial eccentricities but their orbits underwent fast tidal circularization after the cores were exposed. Objects with P_orb ≲ 1 day are, by contrast, mostly “late” cores that originated in planets with a_per > a_R; these planets underwent orbital circularization to a radius > a_per but eventually reached a_R through tidal orbital decay. This picture naturally accounts for the spatial distribution of hot Earths and for the similarity of their inferred occurrence rate to that of hot Jupiters, and it fits well with the interpretation of the so-called sub-Jovian desert in the orbital-period-planetary-mass plane in terms of high-eccentricity planet migration to the vicinity of the RL.

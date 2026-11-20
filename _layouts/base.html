@@ -38,7 +38,8 @@
     "sameAs": [
       "{{ site.author.googlescholar }}",
       "https://github.com/{{ site.author.github }}",
-      "https://orcid.org/{{ site.author.orcid }}"
+      "https://orcid.org/{{ site.author.orcid }}",
+      "{{ site.author.linkedin }}"
     ]
   }
   </script>
@@ -54,8 +55,8 @@
         <a href="{{ '/#about' | relative_url }}">About</a>
         <a href="{{ '/research/' | relative_url }}"{% if page.nav == "research" %} aria-current="page"{% endif %}>Research</a>
         <a href="{{ '/#publications' | relative_url }}"{% if page.nav == "publications" or page.collection == "publications" %} aria-current="page"{% endif %}>Publications</a>
-        <a href="{{ '/#experience' | relative_url }}">Experience</a>
         <a href="{{ '/#contact' | relative_url }}">Contact</a>
+        <a href="{{ site.author.cv | relative_url }}">CV</a>
       </nav>
     </div>
   </header>
@@ -68,10 +69,11 @@
     <div class="wrap foot-in">
       <nav class="foot-links" aria-label="Profiles">
         <a href="{{ site.author.googlescholar }}">Google Scholar</a>
-        <a href="{{ site.author.nasaads }}">ADS</a>
+        <a href="{{ site.author.scix }}">SciX</a>
         <a href="{{ site.author.arxiv }}">arXiv</a>
         <a href="https://orcid.org/{{ site.author.orcid }}">ORCID</a>
         <a href="https://github.com/{{ site.author.github }}">GitHub</a>
+        <a href="{{ site.author.linkedin }}">LinkedIn</a>
         <a href="{{ site.author.cv | relative_url }}">CV</a>
         <a href="mailto:{{ site.author.email }}">Email</a>
       </nav>

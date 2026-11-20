@@ -3,13 +3,13 @@
 # Most of the content lives in plain-text data files, so updating the site
 # rarely means touching HTML:
 #   _data/research.yml    research themes (home-page cards)
-#   _data/experience.yml  positions, education, awards, telescope time, teaching, service, talks
-#   _publications/*.md    one file per paper (front matter = metadata, body = abstract)
+#   _publications/*.md    one file per paper (front matter = metadata, body = abstract);
+#                         only papers with first_author: true are listed
 #   index.html            the About paragraph
 #   research.html         the long-form research page
 
 title: "Steven Giacalone"
-description: "Steven Giacalone is an NSF Astronomy & Astrophysics Postdoctoral Fellow at Caltech who studies how exoplanets and brown dwarfs form and evolve."
+description: "Steven Giacalone is a Postdoctoral Researcher at the NASA Exoplanet Science Institute (Caltech/IPAC) who studies how planetary systems form and evolve."
 url: "https://stevengiacalone.github.io"
 baseurl: ""
 locale: "en-US"
@@ -18,22 +18,23 @@ timezone: "America/Los_Angeles"
 author:
   name: "Steven Giacalone"
   pronouns: "he/him"
-  title: "NSF Astronomy & Astrophysics Postdoctoral Fellow"
-  employer: "California Institute of Technology"
-  employer_url: "https://www.astro.caltech.edu/"
+  title: "Postdoctoral Researcher"
+  employer: "NASA Exoplanet Science Institute (Caltech/IPAC)"
+  employer_url: "https://nexsci.caltech.edu/"
   location: "Pasadena, California"
-  email: "giacalone@astro.caltech.edu"
+  email: "steveng@caltech.edu"
   photo: "/images/profile-sm.jpg"
   cv: "/files/CV_StevenGiacalone.pdf"
   github: "stevengiacalone"
   orcid: "0000-0002-8965-3969"
   googlescholar: "https://scholar.google.com/citations?user=lfzkbtcAAAAJ&hl=en"
   arxiv: "https://arxiv.org/search/astro-ph?searchtype=author&query=Giacalone,+S"
-  nasaads: "https://ui.adsabs.harvard.edu/search/fq=%7B!type%3Daqp%20v%3D%24fq_database%7D&fq_database=(database%3Aastronomy%20OR%20database%3Aphysics)&q=%20author%3A%22Giacalone%2C%20S%22&sort=date%20desc%2C%20bibcode%20desc&p_=0"
+  scix: "https://scixplorer.org/search?p=1&q=author%3A%22giacalone%2C+s%22+property%3Arefereed&sort=date+desc&d=general"
+  linkedin: "https://www.linkedin.com/in/steven-giacalone-a2b934323"
   address:
-    - "Cahill Center for Astronomy and Astrophysics"
-    - "MC 249-17"
-    - "1216 East California Blvd"
+    - "NASA Exoplanet Science Institute"
+    - "California Institute of Technology"
+    - "1200 East California Blvd"
     - "Pasadena, CA 91125"
 
 collections:
