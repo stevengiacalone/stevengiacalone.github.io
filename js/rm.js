@@ -275,7 +275,7 @@
     c.textAlign = "left"; c.fillText("← bluer", x0, h - 10);
     c.textAlign = "right"; c.fillText("redder →", x1, h - 10);
     c.save(); c.translate(12, (y0 + y1) / 2); c.rotate(-Math.PI / 2);
-    c.fillText("brightness", 0, 0); c.restore();
+    c.textAlign = "center"; c.fillText("brightness", 0, 0); c.restore();
   }
 
   // --- animation loop ---------------------------------------------------
