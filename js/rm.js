@@ -271,12 +271,6 @@
     c.strokeStyle = C.ink; c.lineWidth = 1.8; c.beginPath();
     for (var i5 = 0; i5 < NVL; i5++) { var x5 = X(vGrid[i5]); if (i5 === 0) c.moveTo(x5, Y(cur[i5])); else c.lineTo(x5, Y(cur[i5])); }
     c.stroke();
-    // label the shadow while it is visible
-    if (bump > 0.02) {
-      var bx = X(st.v), by = Y(1 - DEPTH * Math.max(0, prof[Math.round((st.v + VMAX) / (2 * VMAX) * (NVL - 1))] - bump)) - 10;
-      c.font = "11px " + SANS; c.textAlign = "center"; c.fillStyle = C.ink;
-      c.fillText("shadow", Math.min(Math.max(bx, x0 + 24), x1 - 24), Math.max(by, top + 4));
-    }
     c.fillStyle = C.faint; c.font = "11px " + SANS; c.textAlign = "center";
     c.fillText("← toward us   velocity   away →", (x0 + x1) / 2, h - 10);
     c.save(); c.translate(12, (y0 + y1) / 2); c.rotate(-Math.PI / 2);
