@@ -18,5 +18,5 @@
 
 - id: formation
   title: "Planet formation and evolution"
-  role: "Theory & atmospheres"
-  blurb: "Simulations of high-eccentricity migration and of dust carried outward by disk winds, plus a survey of brown dwarf atmospheres that traces where these objects formed."
+  role: "Theory"
+  blurb: "Simulations of high-eccentricity tidal migration and of dust carried outward by protoplanetary disk winds, tested against the observed populations of planets and disks."
