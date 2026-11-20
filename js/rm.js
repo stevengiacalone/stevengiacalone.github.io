@@ -205,7 +205,7 @@
     c.fillStyle = C.faint; c.textAlign = "center"; c.font = "11px " + SANS;
     c.fillText("time →", (x0 + x1) / 2, h - 10);
     c.save(); c.translate(12, (y0 + y1) / 2); c.rotate(-Math.PI / 2);
-    c.fillText("velocity shift", 0, 0); c.restore();
+    c.fillText("radial velocity shift", 0, 0); c.restore();
   }
 
   // --- Doppler shadow in the absorption line ---------------------------
