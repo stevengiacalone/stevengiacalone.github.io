@@ -1,0 +1,154 @@
+# Everything in the Experience section of the home page. Newest first.
+# `mark` / `hue` draw the small badge beside each institution; swap in an
+# image by adding `logo: /images/logos/caltech.png` instead.
+
+positions:
+  - org: "California Institute of Technology"
+    mark: "CIT"
+    hue: "#ff6c0c"
+    where: "Pasadena, CA"
+    when: "2023 – present"
+    roles:
+      - title: "NSF Astronomy & Astrophysics Postdoctoral Fellow"
+        when: "2023 – present"
+  - org: "University of California, Berkeley"
+    mark: "UCB"
+    hue: "#3b7ea1"
+    where: "Berkeley, CA"
+    when: "2017 – 2023"
+    roles:
+      - title: "Postdoctoral Researcher"
+        when: "Summer 2023"
+      - title: "NASA FINESST Fellow"
+        when: "2020 – 2023"
+      - title: "Graduate Student Instructor & Researcher"
+        when: "2017 – 2020"
+  - org: "The University of Chicago"
+    mark: "UC"
+    hue: "#a6192e"
+    where: "Chicago, IL"
+    when: "2014 – 2017"
+    roles:
+      - title: "Undergraduate Student Researcher"
+        note: "with Arieh Königl"
+  - org: "Fermilab"
+    mark: "FNAL"
+    hue: "#4f7f9f"
+    where: "Batavia, IL"
+    when: "Summer 2014"
+    roles:
+      - title: "On-Call Technician"
+
+education:
+  - org: "University of California, Berkeley"
+    mark: "UCB"
+    hue: "#3b7ea1"
+    where: "Berkeley, CA"
+    when: "2017 – 2023"
+    roles:
+      - title: "Ph.D., Astrophysics"
+        when: "2023"
+        note: "Advisor: Courtney Dressing · Thesis: Discovery and Demographics of Hot Planets Orbiting Hot Stars"
+      - title: "Graduate Certificate, Applied Data Science"
+        when: "2021"
+      - title: "M.A., Astrophysics"
+        when: "2018"
+  - org: "The University of Chicago"
+    mark: "UC"
+    hue: "#a6192e"
+    where: "Chicago, IL"
+    when: "2017"
+    roles:
+      - title: "B.A., Physics with Honors, specialization in Astrophysics"
+        when: "2017"
+        note: "Advisor: Arieh Königl · Thesis: Dust Transport in Protoplanetary Disk Winds"
+
+awards:
+  - { when: "2023", what: "NSF Astronomy & Astrophysics Postdoctoral Fellowship" }
+  - { when: "2023", what: "STScI Lasker Postdoctoral Fellowship", note: "offer declined" }
+  - { when: "2020", what: "NASA FINESST Fellowship" }
+  - { when: "2019", what: "Sigma Xi" }
+  - { when: "2019", what: "NSF GRFP Honorable Mention" }
+  - { when: "2017", what: "Nathan Sugarman Undergraduate Research Award" }
+  - { when: "2016", what: "The University of Chicago College Research Fellowship" }
+  - { when: "2016", what: "Phi Beta Kappa" }
+
+# Telescope programs led as PI. `amount` is shown right-aligned.
+telescopes_pi:
+  - { name: "CHEOPS Space Telescope", inst: "", amount: "78 orbits" }
+  - { name: "Keck I 10 m", inst: "KPF", amount: "4 nights" }
+  - { name: "Gemini North 8.1 m", inst: "MAROON-X, IGRINS-2", amount: "21 hours" }
+  - { name: "Palomar 200-inch Hale", inst: "PARVI, WIRC", amount: "12 nights" }
+  - { name: "WIYN 3.5 m", inst: "NEID", amount: "8 hours" }
+  - { name: "NASA IRTF 3.2 m", inst: "SpeX", amount: "19.2 hours" }
+  - { name: "APF 2.4 m, Lick Observatory", inst: "Levy", amount: "14.75 nights" }
+  - { name: "SMARTS 1.5 m", inst: "CHIRON", amount: "10 hours" }
+  - { name: "Las Cumbres Observatory 1 m", inst: "Sinistro, NRES", amount: "225.5 hours" }
+  - { name: "Nickel 1 m, Lick Observatory", inst: "Direct Imaging Camera", amount: "60 nights" }
+  - { name: "MINERVA-Australis", inst: "Echelle Spectrograph", amount: "5.5 hours" }
+
+telescopes_coi:
+  - { name: "JWST", inst: "Cycle 1 GO 2062 · NIRISS, NIRSpec", amount: "23 hours" }
+  - { name: "Hubble", inst: "Cycles 28, 29 & 32 · WFC3, STIS, COS", amount: "59 orbits" }
+
+teaching:
+  - { when: "2023 – present", what: "Architect & Instructor, Python for Physics/Astro Workshop", link: "https://github.com/stevengiacalone/Python-workshop", link_text: "Materials" }
+  - { when: "2022", what: "Guest Lecturer, UC Berkeley Astro 7A: Intro to Astrophysics" }
+  - { when: "2022", what: "Guest Lecturer, UC Berkeley Astro 9: Intro to Scientific Computing" }
+  - { when: "Fall 2019", what: "Head GSI, UC Berkeley Astro C162/C249: Planetary Astrophysics" }
+  - { when: "Spring 2019", what: "Head GSI, UC Berkeley Astro 7B: Intro to Astrophysics" }
+  - { when: "Spring 2018", what: "GSI, UC Berkeley Astro C12: The Planets" }
+  - { when: "Fall 2017", what: "GSI, UC Berkeley Astro C10: Intro to General Astronomy" }
+
+advising:
+  - { when: "2025 – present", what: "Aryan Gupta", note: "Caltech SURF/VURP student" }
+  - { when: "2024 – present", what: "William Salazar", note: "Caltech WAVE fellow" }
+  - { when: "2020 – 2023", what: "Rebecca Gore", note: "UC Berkeley research mentee" }
+  - { when: "2020 – 2023", what: "Ashley Schroeder", note: "UC Berkeley research mentee" }
+
+service:
+  - { when: "2025 – present", what: "Caltech Keck/Palomar Time Allocation Committee" }
+  - { when: "2024 – 2025", what: "Organizer, Caltech Astronomy Tea Talk Seminar" }
+  - { when: "2022 – present", what: "Journal referee: PASP, A&A, AAS Journals" }
+  - { when: "2021 – present", what: "NASA proposal review panels" }
+  - { when: "2021 – 2023", what: "Graduate Student Representative, UC Berkeley Astronomy" }
+  - { when: "2018 – 2022", what: "Respect is Part of Research workshop: facilitator, then department representative" }
+
+outreach:
+  - { when: "2019 – 2022", what: "Head Organizer & Host, UC Berkeley Astronomy Night", note: "Monthly public lecture and stargazing party, regularly 100+ attendees", link: "https://www.youtube.com/@astronomynight", link_text: "Lectures" }
+  - { when: "2017 – 2022", what: "Volunteer Instructor, Splash at Berkeley", note: "“The Search for Habitable Exoplanets” for local high-school students" }
+  - { when: "2023", what: "Guest Speaker, UC Berkeley Astronomy Night" }
+  - { when: "2022", what: "Guest Speaker, Science at Cal Midday Science Café" }
+  - { when: "2020", what: "Guest Speaker, Chabot Space & Science Center Galaxy Explorers" }
+
+# Conference and seminar talks. invited: true adds an "invited" tag.
+talks:
+  - { when: "Oct 2025", what: "51 Peg b 30th Anniversary Conference, Haute-Provence Observatory" }
+  - { when: "May 2025", what: "Planets on the Edge Conference, UCSB/KITP" }
+  - { when: "Mar 2025", what: "Astronomy Seminar, Carnegie EPL", invited: true }
+  - { when: "Mar 2025", what: "Exoplanet Seminar, NASA GSFC", invited: true }
+  - { when: "Jan 2025", what: "Exoplanet Group Meeting, The Ohio State University", invited: true }
+  - { when: "Oct 2024", what: "IPAC Lunch Seminar, Caltech/IPAC", invited: true }
+  - { when: "Sep 2024", what: "Keck Science Conference, Caltech" }
+  - { when: "Jul 2024", what: "TESS Science Conference III, MIT" }
+  - { when: "Apr 2024", what: "Exoplanet Journal Club, UH Mānoa/IfA", invited: true }
+  - { when: "Jan 2024", what: "Astrobiology Seminar, UC Riverside", invited: true }
+  - { when: "Jan 2024", what: "AAS 243, New Orleans" }
+  - { when: "Jan 2024", what: "22nd NSF-AST Fellow Symposium, New Orleans" }
+  - { when: "Oct 2023", what: "Exoplanet Lunch Seminar, UCLA", invited: true }
+  - { when: "Jun 2023", what: "Emerging Researchers in Exoplanetary Science VIII, Yale" }
+  - { when: "Jan 2023", what: "AAS 241, Seattle" }
+  - { when: "Nov 2022", what: "Dix Planetary Science Seminar, Caltech", invited: true }
+  - { when: "Oct 2022", what: "Special Seminar, Harvard CfA", invited: true }
+  - { when: "Oct 2022", what: "TESS Science Talk, MIT", invited: true }
+  - { when: "Oct 2022", what: "TESS Science Team Meeting #29, MIT (virtual)" }
+  - { when: "Sep 2022", what: "Exoplanet Journal Club, The University of Chicago", invited: true }
+  - { when: "Sep 2022", what: "Lunch Talk Seminar, UC Berkeley" }
+  - { when: "Apr 2022", what: "Lunch Talk Seminar, UC Berkeley" }
+  - { when: "Jan 2022", what: "CHAMPs Early Career Researcher Highlight Seminar (virtual)" }
+  - { when: "Dec 2021", what: "Bay Area Exoplanet Meeting #39, NASA Ames" }
+  - { when: "Aug 2021", what: "Exoplanet Science Institute Journal Club, NASA JPL (virtual)" }
+  - { when: "Dec 2019", what: "Bay Area Exoplanet Meeting #31, NASA Ames" }
+  - { when: "Sep 2019", what: "Center for Integrative Planetary Science Seminar, UC Berkeley" }
+  - { when: "Mar 2019", what: "Bay Area Exoplanet Meeting #28, NASA Ames" }
+  - { when: "Nov 2018", what: "Graduate Student–Postdoc Seminar, UC Berkeley" }

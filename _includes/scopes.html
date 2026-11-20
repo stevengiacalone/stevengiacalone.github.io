@@ -1,0 +1,5 @@
+<ul class="scopes">
+  {%- for t in include.items %}
+  <li><span class="scope-name">{{ t.name }}{% if t.inst != "" %}<span class="scope-inst">{{ t.inst }}</span>{% endif %}</span><span class="scope-amt">{{ t.amount }}</span></li>
+  {%- endfor %}
+</ul>

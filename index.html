@@ -1,0 +1,119 @@
+---
+layout: base
+title: ""
+---
+{%- assign ex = site.data.experience -%}
+
+<div class="idcard">
+  <img class="portrait" src="{{ site.author.photo | relative_url }}" width="148" height="148"
+       alt="Steven Giacalone, astrophysicist at Caltech">
+  <div class="ident">
+    <h1>{{ site.author.name }}, PhD</h1>
+    <p class="titles">
+      {{ site.author.title }}<br>
+      <a href="{{ site.author.employer_url }}">{{ site.author.employer }}</a><br>
+      {{ site.author.location }} <span class="pronouns">· {{ site.author.pronouns }}</span>
+    </p>
+    {% include idlinks.html %}
+  </div>
+</div>
+
+<h2 id="about">About</h2>
+<div class="bio">
+  <p>
+    I am an NSF Astronomy &amp; Astrophysics Postdoctoral Fellow at Caltech. I study how exoplanets
+    form and evolve in different environments by detecting and characterizing them with ground-based
+    telescopes and large datasets from space missions like <a href="https://tess.mit.edu/">TESS</a>.
+    Right now I am comparing the orbits, atmospheres, and host stars of giant planets and brown dwarfs
+    to work out whether the two form the same way.
+  </p>
+  <p>
+    I earned my PhD in Astrophysics from UC Berkeley in 2023, working with
+    <span class="nowrap">Courtney Dressing</span> to discover planets with TESS and to learn how stellar
+    mass and metallicity shape planetary populations. My thesis focused on hot, terrestrial planets
+    that make favorable JWST targets and on the demographics of planets orbiting hot stars. Along the
+    way I collected data on more than 100 nights at telescopes around the world.
+  </p>
+  <p>
+    I got my start in research as an undergraduate at the University of Chicago, where I worked with
+    <span class="nowrap">Arieh Königl</span> on simulations of planetary migration and of dust transport
+    in protoplanetary disks by magnetocentrifugal winds. I earned a B.A. in Physics with a specialization
+    in Astrophysics there in 2017.
+  </p>
+</div>
+
+<h2 id="research">Research</h2>
+<ul class="topics">
+  {%- for t in site.data.research %}
+  <li class="topic{% if forloop.first %} topic-lead{% endif %}">
+    <a href="{{ '/research/' | relative_url }}#{{ t.id }}">
+      <span class="topic-head"><span class="topic-index">0{{ forloop.index }}</span><span class="topic-title">{{ t.title }}</span></span>
+      <span class="topic-role">{{ t.role }}</span>
+      <span class="topic-blurb">{{ t.blurb }}</span>
+    </a>
+  </li>
+  {%- endfor %}
+</ul>
+<p class="more"><a href="{{ '/research/' | relative_url }}">Read more about my research →</a></p>
+
+<h2 id="publications">Publications</h2>
+<p class="section-note">
+  More than 100 peer-reviewed publications in total; the full list is on
+  <a href="{{ site.author.nasaads }}">ADS</a>, <a href="{{ site.author.googlescholar }}">Google Scholar</a>, and
+  <a href="{{ site.author.arxiv }}">arXiv</a>. Papers I led or co-led are below.
+</p>
+{% include publist.html %}
+
+<h2 id="experience">Experience</h2>
+
+<h3 class="subhead">Positions</h3>
+{% include orgs.html items=ex.positions %}
+
+<h3 class="subhead">Education</h3>
+{% include orgs.html items=ex.education %}
+
+<h3 class="subhead">Awards &amp; honors</h3>
+{% include rows.html items=ex.awards %}
+
+<h3 class="subhead">Telescope time</h3>
+<div class="scope-grid">
+  <div>
+    <p class="minor">As PI</p>
+    {% include scopes.html items=ex.telescopes_pi %}
+  </div>
+  <div>
+    <p class="minor">As Co-I, space telescopes</p>
+    {% include scopes.html items=ex.telescopes_coi %}
+    <p class="minor-note">Plus Co-I time on Keck, Gemini North, WIYN, IRTF, Shane, APF and SMARTS. Details in the <a href="{{ site.author.cv | relative_url }}">CV</a>.</p>
+  </div>
+</div>
+
+<h3 class="subhead">Teaching</h3>
+{% include rows.html items=ex.teaching %}
+
+<h3 class="subhead">Mentoring</h3>
+{% include rows.html items=ex.advising %}
+
+<h3 class="subhead">Service</h3>
+{% include rows.html items=ex.service %}
+
+<h3 class="subhead">Outreach</h3>
+{% include rows.html items=ex.outreach %}
+
+<h3 class="subhead">Talks</h3>
+<details class="talks">
+  <summary>{{ ex.talks.size }} conference and seminar talks since 2018 <span class="summary-hint">Show all</span></summary>
+  {% include rows.html items=ex.talks %}
+</details>
+
+<h2 id="contact">Contact</h2>
+<div class="contact">
+  <div>
+    <p class="minor">Email</p>
+    <p><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></p>
+  </div>
+  <div>
+    <p class="minor">Mail</p>
+    <p>{% for line in site.author.address %}{{ line }}{% unless forloop.last %}<br>{% endunless %}{% endfor %}</p>
+  </div>
+</div>

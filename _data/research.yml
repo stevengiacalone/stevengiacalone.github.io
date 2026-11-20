@@ -1,0 +1,21 @@
+# Research themes. Shown as numbered cards on the home page; each links to
+# its section on /research/ (the `id` is the anchor).
+- id: brown-dwarfs
+  title: "Origin of close-in brown dwarfs"
+  role: "Current focus"
+  blurb: "Did brown dwarfs on tight orbits migrate inward or form where we see them? I measure their orbital tilts, host-star metallicities, and atmospheric compositions to find out."
+
+- id: hot-stars
+  title: "Small planets around hot stars"
+  role: "PhD thesis"
+  blurb: "The first measurement of how common small, close-in planets are around A-type stars, using TESS. They turn out to be markedly rarer than around cooler stars."
+
+- id: tess
+  title: "Exoplanet discovery with TESS"
+  role: "Software · TRICERATOPS"
+  blurb: "A Bayesian tool that separates real planets from false positives using TESS photometry alone, now credited with over 100 planet discoveries."
+
+- id: formation
+  title: "Planet formation and evolution"
+  role: "Theory"
+  blurb: "Simulations of high-eccentricity tidal migration and of dust carried outward by magnetocentrifugal disk winds, compared against observed systems."

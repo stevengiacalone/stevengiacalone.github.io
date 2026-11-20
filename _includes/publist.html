@@ -1,0 +1,21 @@
+{%- comment -%}
+  Papers grouped by year. Pass summaries=true to show the one-line summary.
+{%- endcomment -%}
+{%- assign papers = site.publications | sort: "date" | reverse -%}
+{%- assign years = papers | group_by: "year" -%}
+{%- for group in years %}
+<p class="year">{{ group.name }}</p>
+<ul class="pubs">
+  {%- for p in group.items %}
+  <li>
+    <p class="pub-title"><span class="tag tag-{{ p.journal | downcase }}">{{ p.journal }}</span><a href="{{ p.url | relative_url }}">{{ p.title }}</a></p>
+    <p class="pub-authors">{% include authors.html names=p.authors %}</p>
+    <p class="pub-venue">{{ p.venue }}, {{ p.volume }} ({{ p.year }})</p>
+    {%- if include.summaries %}
+    <p class="pub-summary">{{ p.excerpt | strip_html }}</p>
+    {%- endif %}
+    <p class="pub-links"><a href="{{ p.paperurl | relative_url }}">PDF</a><a href="{{ p.ads }}">ADS</a><a href="{{ p.url | relative_url }}">Abstract</a></p>
+  </li>
+  {%- endfor %}
+</ul>
+{%- endfor -%}

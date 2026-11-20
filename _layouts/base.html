@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0f1013">
+  {%- if page.title and page.title != "" -%}
+    {%- assign doc_title = page.title | append: " · " | append: site.title -%}
+  {%- else -%}
+    {%- assign doc_title = site.title | append: " · Astrophysicist, Caltech" -%}
+  {%- endif %}
+  <title>{{ doc_title }}</title>
+  {%- assign desc = page.description | default: page.excerpt | default: site.description | strip_html | strip_newlines %}
+  <meta name="description" content="{{ desc | escape }}">
+  <meta name="author" content="{{ site.author.name }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <meta property="og:site_name" content="{{ site.author.name }}">
+  <meta property="og:type" content="{% if page.collection == 'publications' %}article{% else %}website{% endif %}">
+  <meta property="og:title" content="{{ doc_title | escape }}">
+  <meta property="og:description" content="{{ desc | escape }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:image" content="{{ site.author.photo | absolute_url }}">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="{{ '/images/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="icon" href="{{ '/images/favicon.png' | relative_url }}" type="image/png">
+  <link rel="stylesheet" href="{{ '/css/site.css' | relative_url }}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "{{ site.author.name }}",
+    "jobTitle": "{{ site.author.title }}",
+    "affiliation": { "@type": "Organization", "name": "{{ site.author.employer }}" },
+    "url": "{{ site.url }}",
+    "image": "{{ site.author.photo | absolute_url }}",
+    "email": "mailto:{{ site.author.email }}",
+    "sameAs": [
+      "{{ site.author.googlescholar }}",
+      "https://github.com/{{ site.author.github }}",
+      "https://orcid.org/{{ site.author.orcid }}"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="sky" aria-hidden="true"><canvas id="sky"></canvas></div>
+
+  <header class="masthead">
+    <div class="masthead-in">
+      <a class="masthead-name" href="{{ '/' | relative_url }}">{{ site.author.name }}</a>
+      <nav aria-label="Primary">
+        <a href="{{ '/#about' | relative_url }}">About</a>
+        <a href="{{ '/research/' | relative_url }}"{% if page.nav == "research" %} aria-current="page"{% endif %}>Research</a>
+        <a href="{{ '/#publications' | relative_url }}"{% if page.nav == "publications" or page.collection == "publications" %} aria-current="page"{% endif %}>Publications</a>
+        <a href="{{ '/#experience' | relative_url }}">Experience</a>
+        <a href="{{ '/#contact' | relative_url }}">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    {{ content }}
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap foot-in">
+      <nav class="foot-links" aria-label="Profiles">
+        <a href="{{ site.author.googlescholar }}">Google Scholar</a>
+        <a href="{{ site.author.nasaads }}">ADS</a>
+        <a href="{{ site.author.arxiv }}">arXiv</a>
+        <a href="https://orcid.org/{{ site.author.orcid }}">ORCID</a>
+        <a href="https://github.com/{{ site.author.github }}">GitHub</a>
+        <a href="{{ site.author.cv | relative_url }}">CV</a>
+        <a href="mailto:{{ site.author.email }}">Email</a>
+      </nav>
+      <p class="copy">© {{ site.time | date: '%Y' }} {{ site.author.name }}</p>
+    </div>
+  </footer>
+
+  <script src="{{ '/js/sky.js' | relative_url }}" defer></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{%- comment -%} Compact dated rows: when · what (note) · link. {%- endcomment -%}
+<ul class="rows">
+  {%- for x in include.items %}
+  <li>
+    <span class="row-when">{{ x.when }}</span>
+    <span class="row-what">{{ x.what }}{% if x.invited %} <span class="pill">invited</span>{% endif %}{% if x.note %}<span class="row-note">{{ x.note }}</span>{% endif %}</span>
+    <span class="row-link">{% if x.link %}<a href="{{ x.link }}">{{ x.link_text | default: "Link" }}</a>{% endif %}</span>
+  </li>
+  {%- endfor %}
+</ul>

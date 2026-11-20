@@ -1,0 +1,4 @@
+{%- for a in include.names -%}
+{%- if a == "S. Giacalone" -%}<span class="me">{{ a }}</span>{%- else -%}{{ a }}{%- endif -%}
+{%- unless forloop.last %}, {% endunless -%}
+{%- endfor -%}

@@ -1,0 +1,20 @@
+{%- comment -%} Institution rows with a badge, used for positions and education. {%- endcomment -%}
+<ul class="jobs">
+  {%- for r in include.items %}
+  <li class="job">
+    {%- if r.logo %}<img class="logo" src="{{ r.logo | relative_url }}" alt="">
+    {%- else %}<span class="logo mark" style="--hue: {{ r.hue }}" aria-hidden="true">{{ r.mark }}</span>{% endif %}
+    <div class="job-body">
+      <div class="job-org">{{ r.org }}<span class="job-meta"><span class="sep"> · </span>{{ r.where }}<span class="sep"> · </span>{{ r.when }}</span></div>
+      <ul class="job-pos{% if r.roles.size > 1 %} railed{% endif %}">
+        {%- for p in r.roles %}
+        <li>
+          <span class="pos-title">{{ p.title }}{% if p.note %}<span class="pos-note">{{ p.note }}</span>{% endif %}</span>
+          {%- if r.roles.size > 1 and p.when %}<span class="pos-when">{{ p.when }}</span>{% endif %}
+        </li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </li>
+  {%- endfor %}
+</ul>

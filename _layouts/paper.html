@@ -1,0 +1,18 @@
+---
+layout: base
+---
+<article class="paper">
+  <p class="kicker"><a href="{{ '/#publications' | relative_url }}">← Publications</a></p>
+  <h1 class="page-title">{{ page.title }}</h1>
+  <p class="pub-authors">{% include authors.html names=page.authors %}</p>
+  <p class="pub-venue"><span class="tag tag-{{ page.journal | downcase }}">{{ page.journal }}</span>{{ page.venue }}, {{ page.volume }} ({{ page.year }})</p>
+  <p class="paper-links">
+    <a class="btn" href="{{ page.paperurl | relative_url }}">PDF</a>
+    <a class="btn" href="{{ page.ads }}">ADS</a>
+  </p>
+  {%- if page.excerpt %}
+  <p class="tldr"><span class="minor">In brief</span>{{ page.excerpt | strip_html }}</p>
+  {%- endif %}
+  <h2>Abstract</h2>
+  <div class="abstract">{{ content }}</div>
+</article>

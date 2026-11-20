@@ -1,0 +1,146 @@
+---
+layout: base
+title: "Research"
+permalink: /research/
+nav: research
+description: "Steven Giacalone's research: the origin of close-in brown dwarfs, small planets around hot stars, exoplanet discovery with TESS and TRICERATOPS, and planet formation and evolution."
+---
+{%- assign th = site.data.research -%}
+{%- capture pdf %}{{ '/files/' | relative_url }}{% endcapture -%}
+
+<h1 class="page-title">Research</h1>
+<p class="lede">
+  I study how planets and brown dwarfs form and evolve, using ground-based telescopes and large
+  surveys from space missions like TESS. Four threads run through my work.
+</p>
+
+<section class="thread">
+  <div class="thread-index">01</div>
+  <div class="thread-body">
+    <h2 id="{{ th[0].id }}">{{ th[0].title }}</h2>
+    <p class="thread-role">{{ th[0].role }}</p>
+    <p>
+      Brown dwarfs, objects traditionally classified as having 13–80 times the mass of Jupiter, are
+      thought to form far from their host stars or free-floating. Brown dwarfs orbiting close to their
+      stars have therefore been a mystery since their discovery decades ago. Did these massive companions
+      migrate inward from distant orbits, or did they form in situ through some unknown mechanism? To
+      answer this, I use ground-based observations that reveal the orbits, host-star properties, and
+      atmospheric compositions of brown dwarfs.
+    </p>
+
+    <h3>Orbital tilts</h3>
+    <p>
+      The angle between the host star's spin axis and the companion's orbital angular momentum, called
+      the stellar obliquity, records the system's dynamical history. If the two are aligned, the brown
+      dwarf most likely formed in and migrated through a protoplanetary disk, like a planet. If they are
+      misaligned, it was most likely "kicked" inward by another object or captured by the star. To find
+      out how close-in brown dwarfs reached their current orbits, I co-founded the OATMEAL survey, which
+      is more than doubling the number of these systems with obliquity measurements and enabling
+      population-level studies of brown dwarf orbits. See
+      <a href="{{ pdf }}Giacalone_etal_2024.pdf">Giacalone et al. (2024)</a> and
+      <a href="{{ pdf }}Giacalone_etal_2025a.pdf">Giacalone et al. (2025)</a>.
+    </p>
+    <figure class="fig">
+      <img src="{{ pdf }}fig1.png" loading="lazy" alt="Doppler shadow of GPX-1 b and the Rossiter–McLaughlin signal of KELT-23A b.">
+      <figcaption>The Doppler shadow of GPX-1 b (Giacalone et al. 2024) and the Rossiter–McLaughlin signal of KELT-23A b (Giacalone et al. 2025). These spectroscopic signals were used to measure the stellar obliquities of the two systems.</figcaption>
+    </figure>
+
+    <h3>Stellar metallicities</h3>
+    <p>
+      Stellar metallicity correlates strongly with how often giant planets and low-mass stellar companions
+      occur. Giant planets are more common around metal-rich stars, whereas low-mass stellar companions
+      appear around stars spanning a wide range of metallicities. This is likely because giant planet
+      formation (gas accreting onto a solid core) works more efficiently in metal-rich environments, while
+      star formation (direct collapse of gas) is largely independent of metal content. In principle, we
+      can tell whether brown dwarfs form like planets or like stars by finding the companion mass at which
+      the host-star metallicity distribution changes. In a submitted paper, we explore this using the
+      California Legacy Survey, a 30-year radial-velocity survey that detected hundreds of planets and
+      brown dwarfs.
+    </p>
+    <figure class="fig">
+      <img src="{{ pdf }}fig2.png" loading="lazy" alt="Host-star metallicity versus companion mass.">
+      <figcaption>From Giacalone et al. (submitted): the stellar metallicity distribution changes at a companion mass of about 27 Jupiter masses. Brown dwarfs less massive than this may have formed like giant planets.</figcaption>
+    </figure>
+
+    <h3>Atmospheric compositions</h3>
+    <p>
+      I am leading a survey to measure the atmospheric compositions of close-in brown dwarfs with
+      high-resolution, near-infrared spectroscopy. The goal is to measure their carbon-to-oxygen ratios,
+      which trace how and where they formed. Comparing these with giant-planet measurements will show
+      whether brown dwarfs and giant planets share a formation pathway.
+    </p>
+  </div>
+</section>
+
+<section class="thread">
+  <div class="thread-index">02</div>
+  <div class="thread-body">
+    <h2 id="{{ th[1].id }}">{{ th[1].title }}</h2>
+    <p class="thread-role">{{ th[1].role }}</p>
+    <p>
+      For my PhD thesis, I measured how common small planets are close to A-type stars for the first time.
+      A-type stars are hot stars roughly twice the size of the Sun. Those properties may give their planets
+      different characteristics from planets around Sun-like stars, but they also make planets around them
+      harder to find, so early surveys such as Kepler largely avoided them. Because TESS observes stars
+      across nearly the entire sky, it finally lets us study planets around A-type stars. In
+      <a href="{{ pdf }}Giacalone_Dressing_2025.pdf">Giacalone &amp; Dressing (2025)</a>, I found that
+      planets smaller than Jupiter with orbital periods under 10 days are significantly rarer around A-type
+      stars than around cooler stars. This is likely because dust sublimates farther from these hot stars,
+      which keeps small planets from forming in or migrating to such close orbits.
+    </p>
+    <figure class="fig">
+      <img src="{{ pdf }}fig3.png" loading="lazy" alt="Sub-Neptune occurrence rate around M, K, G, F and A-type stars.">
+      <figcaption>From Giacalone &amp; Dressing (2025): the occurrence rate of sub-Neptunes around M-, K-, G-, F-, and A-type stars (left to right). It falls steadily with increasing stellar temperature, suggesting that the temperature of the inner protoplanetary disk helps decide whether planets can migrate close to the star.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="thread">
+  <div class="thread-index">03</div>
+  <div class="thread-body">
+    <h2 id="{{ th[2].id }}">{{ th[2].title }}</h2>
+    <p class="thread-role">{{ th[2].role }}</p>
+    <p>
+      When TESS launched in 2018, it was expected to find thousands of transiting planets and thousands of
+      astrophysical false positives, such as eclipsing binaries that mimic planetary signals. Radial-velocity
+      measurements or transit-timing variations can confirm genuine planets, but limited telescope time makes
+      that impossible for most candidates. To address this bottleneck, I developed TRICERATOPS, a Bayesian
+      tool that distinguishes true planets from false positives using TESS photometry alone
+      (<a href="{{ pdf }}Giacalone_etal_2021.pdf">Giacalone et al. 2021</a>).
+    </p>
+    <p>
+      With TRICERATOPS, I discovered 13 rocky planets that are high-priority targets for JWST atmospheric
+      characterization (<a href="{{ pdf }}Giacalone_etal_2022a.pdf">Giacalone et al. 2022a</a>) and the
+      Neptune-size planet HD 56414 b, one of the only known sub-Jovian planets orbiting an A-type star
+      (<a href="{{ pdf }}Giacalone_etal_2022b.pdf">Giacalone et al. 2022b</a>). The tool is now responsible
+      for more than 100 planet discoveries, roughly 20% of all planets found in TESS data to date, and is
+      widely used across the exoplanet community.
+    </p>
+    <p class="callout"><a href="https://github.com/stevengiacalone/triceratops">TRICERATOPS on GitHub →</a></p>
+  </div>
+</section>
+
+<section class="thread">
+  <div class="thread-index">04</div>
+  <div class="thread-body">
+    <h2 id="{{ th[3].id }}">{{ th[3].title }}</h2>
+    <p class="thread-role">{{ th[3].role }}</p>
+    <p>
+      Comparing observations with theoretical models tells us how planets form and evolve. In
+      <a href="{{ pdf }}Giacalone_etal_2017.pdf">Giacalone et al. (2017)</a> and
+      <a href="{{ pdf }}Konigl_etal_2017.pdf">Königl et al. (2017)</a>, I compared simulations of
+      high-eccentricity tidal migration, a way of moving planets from wide orbits to close-in ones, with the
+      observed population of close-in planets. We showed that this mechanism reproduces the eccentricity
+      distribution of hot Jupiters and the orbital-period distribution of dynamically isolated rocky planets,
+      explaining how planets end up where they could not have formed.
+    </p>
+    <p>
+      In <a href="{{ pdf }}Giacalone_etal_2019.pdf">Giacalone et al. (2019)</a>, I simulated dust carried
+      radially outward through protoplanetary disks by magnetocentrifugal winds. Outward transport is thought
+      to occur because of calcium-aluminum-rich inclusions in carbonaceous chondrite meteorites and the large
+      amounts of crystalline dust in the outer regions of protoplanetary disks, both of which could only have
+      formed at high temperatures close to the star. I showed that disk-wind transport can explain the observed
+      crystallinity fractions in outer disks, suggesting it plays an important role in planet formation.
+    </p>
+  </div>
+</section>
