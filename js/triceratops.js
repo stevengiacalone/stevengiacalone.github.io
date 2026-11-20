@@ -1,12 +1,13 @@
 /* How TRICERATOPS works, very simply (/research/tess/).
    Two candidate explanations for the same dip: a transiting planet and a
-   hierarchical eclipsing binary (a bound pair of stars, diluted by the target's
+   hierarchical eclipsing binary (a bound pair of stars whose eclipse is diluted by the target's
    light because all three share one TESS pixel). Each transit adds data to a
-   phase-folded light curve; each model's depth is refit to the data so far and
-   its probability is computed from the fit (equal prior odds). The planet's
-   flat-bottomed U-shaped dip fits; the binary's V-shaped dip does not.
-   The data are a fixed, pre-generated noisy planet transit, so every visitor
-   sees the same sequence. With prefers-reduced-motion the end state is shown. */
+   phase-folded light curve, shown static. As each system goes through one
+   transit, its best-fit model line is drawn across the data; then both
+   models' probabilities (from the fit, equal prior odds) are revealed. The
+   planet's flat-bottomed U-shaped dip fits; the binary's V-shaped dip does not.
+   The data are fixed and pre-generated (a noisy planet transit), so every
+   visitor sees the same result. With prefers-reduced-motion the end state is shown. */
 (function () {
   var ids = ["tri-sys-pl", "tri-lc-pl", "tri-sys-eb", "tri-lc-eb"];
   var cv = ids.map(function (id) { return document.getElementById(id); });
@@ -33,11 +34,20 @@
     if (a < 1 - TAU) { var q = x / (1 - TAU); return 0.92 + 0.08 * (1 - q * q); }
     var s = (1 - a) / TAU; return 0.92 * s * s * (3 - 2 * s);
   }
-  function shapeEB(x) { return Math.max(0, 1 - Math.abs(x) / 1.05); }
+  // Eclipse of a limb-darkened star by a slightly smaller companion (radius
+  // ratio 0.9, impact parameter 0.25): blocked light vs. position, computed
+  // numerically and normalized to 1 at mid-eclipse. Index 0 = mid-eclipse,
+  // last = first/last contact. Rounded bottom, curved sides.
+  var EB_HALF = [1,0.9966,0.9873,0.9721,0.953,0.9297,0.9038,0.8753,0.8454,0.8133,0.7808,0.7477,0.7139,0.6796,0.6443,0.6101,0.5757,0.5417,0.5076,0.4739,0.44,0.4073,0.3753,0.3439,0.3131,0.2829,0.254,0.226,0.1994,0.1734,0.1491,0.1256,0.1042,0.0841,0.0658,0.0491,0.0342,0.0215,0.0113,0.0039,0];
+  function shapeEB(x) {
+    var a = Math.abs(x); if (a >= 1) return 0;
+    var f = a * (EB_HALF.length - 1), k = Math.floor(f), r = f - k;
+    return EB_HALF[k] * (1 - r) + EB_HALF[Math.min(k + 1, EB_HALF.length - 1)] * r;
+  }
 
   // Timeline
-  var CYCLE = 5200, VERDICT = 5000, T_END = NT * CYCLE + VERDICT;
-  var W0 = 0.25, W1 = 0.75;                       // share of each cycle spent on the transit window
+  var CYCLE = 7000, VERDICT = 5500, T_END = CYCLE + VERDICT;
+  var W0 = 0.18, W1 = 0.82;                       // share of the cycle spent on the transit window
   var A_ORB = 3.0, K = 0.1;                       // planet orbit (star radii), radius ratio
   var DP = Math.asin((1 + K) / A_ORB) / (2 * Math.PI);   // half-duration in orbital phase
   function orbitalPhase(u) {                      // u in [0,1) -> orbital phase p, slowed during transit
@@ -49,21 +59,13 @@
 
   // State at time t: which points are visible, and the cursor position.
   function state(t) {
-    if (t >= NT * CYCLE) return { j: NT, cursor: null, p: 0.5, verdict: true };
-    var j = Math.floor(t / CYCLE), u = (t % CYCLE) / CYCLE;
+    if (t >= CYCLE) return { cursor: Infinity, p: 0.5, verdict: true };
+    var u = t / CYCLE;
     var cursor = u < W0 ? -Infinity : u >= W1 ? Infinity : -2 + 4 * (u - W0) / (W1 - W0);
-    return { j: j, cursor: cursor, p: orbitalPhase(u), verdict: false };
+    return { cursor: cursor, p: orbitalPhase(u), verdict: false };
   }
-  function visible(st) {
-    var pts = [];
-    for (var j = 0; j < NT; j++) {
-      for (var i = 0; i < NP; i++) {
-        var x = xOf(j, i);
-        if (j < st.j || (j === st.j && x <= st.cursor)) pts.push({ x: x, y: DATA[j][i], cur: j === st.j });
-      }
-    }
-    return pts;
-  }
+  var PTS = [];
+  for (var jj = 0; jj < NT; jj++) for (var ii = 0; ii < NP; ii++) PTS.push({ x: xOf(jj, ii), y: DATA[jj][ii] });
   // Best-fit depth (linear least squares) and chi-square for a model shape.
   function fitModel(pts, shape) {
     var sdm = 0, smm = 0;
@@ -140,7 +142,7 @@
     c.strokeStyle = RULE; c.lineWidth = 1; c.strokeRect(x0 + 0.5, y0 + 0.5, x1 - x0, y1 - y0);
     // raw points
     pts.forEach(function (p) {
-      c.fillStyle = p.cur && !st.verdict ? "rgba(236,235,232,0.75)" : "rgba(150,150,150,0.38)";
+      c.fillStyle = "rgba(160,160,160,0.42)";
       c.beginPath(); c.arc(X(p.x), Y(p.y), 1.7, 0, Math.PI * 2); c.fill();
     });
     // binned averages
@@ -154,11 +156,16 @@
     }
     // best-fit model
     c.strokeStyle = dim ? "rgba(242,154,107,0.55)" : ACCENT; c.lineWidth = 2.2; c.beginPath();
-    for (var i = 0; i <= 200; i++) {
-      var xx = -2 + 4 * i / 200, yy = -model.a * shape(xx);
-      if (i === 0) c.moveTo(X(xx), Y(yy)); else c.lineTo(X(xx), Y(yy));
+    var xEnd = Math.min(2, st.cursor);
+    if (xEnd > -2) {
+      for (var i = 0; i <= 200; i++) {
+        var xx = -2 + 4 * i / 200; if (xx > xEnd) xx = xEnd;
+        var yy = -model.a * shape(xx);
+        if (i === 0) c.moveTo(X(xx), Y(yy)); else c.lineTo(X(xx), Y(yy));
+        if (xx === xEnd) break;
+      }
+      c.stroke();
     }
-    c.stroke();
     // scanning cursor
     if (st.cursor !== null && isFinite(st.cursor)) {
       c.strokeStyle = "rgba(255,255,255,0.35)"; c.lineWidth = 1;
@@ -184,22 +191,23 @@
     return Math.round(v) + "%";
   }
 
+  var M_PL = fitModel(PTS, shapePlanet), M_EB = fitModel(PTS, shapeEB);
+  var P_PL = 1 / (1 + Math.exp(-(M_EB.chi - M_PL.chi) / 2));
   function render(t) {
-    var st = state(t), pts = visible(st);
-    var mPl = fitModel(pts, shapePlanet), mEb = fitModel(pts, shapeEB);
-    var dchi = mEb.chi - mPl.chi, pPl = pts.length ? 1 / (1 + Math.exp(-dchi / 2)) : 0.5;
+    var st = state(t);
     drawPlanet(st.p); drawEB(st.p);
-    drawLC(1, pts, shapePlanet, mPl, st, false);
-    drawLC(3, pts, shapeEB, mEb, st, st.verdict);
-    if (el.barPl) el.barPl.style.width = (pPl * 100).toFixed(1) + "%";
-    if (el.barEb) el.barEb.style.width = ((1 - pPl) * 100).toFixed(1) + "%";
-    if (el.pPl) el.pPl.textContent = fmt(pPl);
-    if (el.pEb) el.pEb.textContent = fmt(1 - pPl);
+    drawLC(1, PTS, shapePlanet, M_PL, st, false);
+    drawLC(3, PTS, shapeEB, M_EB, st, st.verdict);
+    var show = st.verdict;
+    if (el.barPl) el.barPl.style.width = show ? (P_PL * 100).toFixed(1) + "%" : "0%";
+    if (el.barEb) el.barEb.style.width = show ? ((1 - P_PL) * 100).toFixed(1) + "%" : "0%";
+    if (el.pPl) el.pPl.textContent = show ? fmt(P_PL) : "–";
+    if (el.pEb) el.pEb.textContent = show ? fmt(1 - P_PL) : "–";
     if (el.rowPl) el.rowPl.classList.toggle("win", st.verdict);
     if (el.rowEb) el.rowEb.classList.toggle("lose", st.verdict);
     if (el.vPl) el.vPl.hidden = !st.verdict;
     if (el.vEb) el.vEb.hidden = !st.verdict;
-    if (el.status) el.status.textContent = st.verdict ? "After four transits" : "Transit " + (st.j + 1) + " of " + NT;
+    if (el.status) el.status.textContent = st.verdict ? "Result" : "Fitting each model to the data…";
   }
 
   var start = 0, raf = 0, playing = !still;

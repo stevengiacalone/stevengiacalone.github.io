@@ -236,7 +236,8 @@ a:focus-visible, summary:focus-visible {
 .tri-bad { color: var(--ink-soft); border: 1px solid var(--rule); }
 .tri-prob { margin-left: auto; display: flex; align-items: center; gap: 0.5rem; min-width: 11rem; }
 .tri-bar { flex: 1; height: 7px; border-radius: 4px; background: var(--rule-soft); overflow: hidden; border: 1px solid var(--rule); }
-.tri-bar span { display: block; height: 100%; background: var(--accent); border-radius: 4px; }
+.tri-bar span { display: block; height: 100%; background: var(--accent); border-radius: 4px; transition: width .9s ease; }
+@media (prefers-reduced-motion: reduce) { .tri-bar span { transition: none; } }
 #tri-row-eb .tri-bar span { background: var(--ink-faint); }
 .tri-pct { font-family: var(--sans); font-size: 0.8rem; color: var(--ink); min-width: 3.6em; text-align: right; font-variant-numeric: tabular-nums; }
 .tri-panels { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 0.6rem; }
