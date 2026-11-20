@@ -16,12 +16,12 @@
 
   // Radii in units of the panel half-width.
   var SYSTEMS = [
-    { star: 0.045, glow: 0.16, core: [255, 236, 190], halo: [255, 196, 92],
-      rsub: 0.24, rout: 0.95, r0: 0.82, rend: 0.105, rtess: 0.19, tessLabelInside: false,
+    { star: 0.045, core: [255, 236, 190], halo: [255, 196, 92],
+      rsub: 0.24, rout: 0.95, r0: 0.82, rend: 0.105, rtess: 0.19,
       tideText: "Tides pull it closer to the star", endText: "It ends up on a close-in orbit",
       tessText: "Planets end up where TESS can detect them", seed: 7 },
-    { star: 0.075, glow: 0.30, core: [240, 246, 255], halo: [150, 190, 255],
-      rsub: 0.58, rout: 0.95, r0: 0.82, rend: 0.575, rtess: 0.48, tessLabelInside: true,
+    { star: 0.075, core: [240, 246, 255], halo: [150, 190, 255],
+      rsub: 0.58, rout: 0.95, r0: 0.82, rend: 0.575, rtess: 0.48,
       tideText: "Too far away for tides to act", endText: "It is stranded on a wider orbit",
       tessText: "No planets end up where TESS can detect them", seed: 11 }
   ];
@@ -99,6 +99,7 @@
     c.clearRect(0, 0, w, h);
 
     var diskA = 1 - ease((t - T_PARK) / (T_DISP - T_PARK));
+    var hl = keepPlanet ? 1 : ease((t - T_GONE) / (T_HL - T_GONE));   // TESS region fade-in
 
     // Gas/dust glow of the disk
     if (diskA > 0.01) {
@@ -121,17 +122,20 @@
       }
     }
 
-    // Dust sublimation radius (stays as a reference after the disk is gone)
-    c.strokeStyle = rgba([255, 200, 150], 0.35 + 0.35 * diskA); c.lineWidth = 1.1; c.setLineDash([4, 4]);
-    c.beginPath(); c.arc(cx, cy, s.rsub * R, 0, Math.PI * 2); c.stroke(); c.setLineDash([]);
-    c.font = "11px " + SANS; c.textAlign = "center";
-    c.lineWidth = 3; c.strokeStyle = "rgba(13,14,17,0.85)";
-    var ly = cy - s.rsub * R - 7;
-    c.strokeText("dust sublimation radius", cx, ly);
-    c.fillStyle = rgba([255, 214, 176], 0.95); c.fillText("dust sublimation radius", cx, ly);
+    // Dust sublimation radius: a reference after the disk is gone, then fades
+    // out as the TESS-sensitive region appears.
+    var subA = 1 - hl;
+    if (subA > 0.01) {
+      c.strokeStyle = rgba([255, 200, 150], (0.35 + 0.35 * diskA) * subA); c.lineWidth = 1.1; c.setLineDash([4, 4]);
+      c.beginPath(); c.arc(cx, cy, s.rsub * R, 0, Math.PI * 2); c.stroke(); c.setLineDash([]);
+      c.font = "11px " + SANS; c.textAlign = "center";
+      c.lineWidth = 3; c.strokeStyle = rgba([13, 14, 17], 0.85 * subA);
+      var ly = cy - s.rsub * R - 7;
+      c.strokeText("dust sublimation radius", cx, ly);
+      c.fillStyle = rgba([255, 214, 176], 0.95 * subA); c.fillText("dust sublimation radius", cx, ly);
+    }
 
     // TESS-sensitive region (end of the sequence)
-    var hl = keepPlanet ? 1 : ease((t - T_GONE) / (T_HL - T_GONE));
     if (hl > 0.01) {
       var TZ = [110, 225, 200];
       var zg = c.createRadialGradient(cx, cy, 0, cx, cy, s.rtess * R);
@@ -140,16 +144,14 @@
       c.strokeStyle = rgba(TZ, 0.85 * hl); c.lineWidth = 1.5;
       c.beginPath(); c.arc(cx, cy, s.rtess * R, 0, Math.PI * 2); c.stroke();
       c.font = "11px " + SANS; c.textAlign = "center";
-      var ty = s.tessLabelInside ? cy + s.rtess * R - 9 : cy + s.rtess * R + 15;
+      var ty = cy - s.rtess * R - 7;                 // just above the region, like the ring label
       c.lineWidth = 3; c.strokeStyle = rgba([13, 14, 17], 0.85 * hl); c.strokeText("TESS-sensitive region", cx, ty);
       c.fillStyle = rgba([170, 240, 222], hl); c.fillText("TESS-sensitive region", cx, ty);
     }
 
     // Star
-    var sg = c.createRadialGradient(cx, cy, 0, cx, cy, s.glow * R);
-    sg.addColorStop(0, rgba(s.core, 1)); sg.addColorStop(0.28, rgba(s.halo, 0.55)); sg.addColorStop(1, rgba(s.halo, 0));
-    c.fillStyle = sg; c.beginPath(); c.arc(cx, cy, s.glow * R, 0, Math.PI * 2); c.fill();
-    c.fillStyle = rgba(s.core, 1); c.beginPath(); c.arc(cx, cy, s.star * R, 0, Math.PI * 2); c.fill();
+    c.fillStyle = rgba(s.halo.map(function (v, k) { return Math.round((v + s.core[k]) / 2); }), 1);
+    c.beginPath(); c.arc(cx, cy, s.star * R, 0, Math.PI * 2); c.fill();
 
     // Planet and its trail
     var appear = keepPlanet ? 1 : clamp01(t / (500 * SLOW)) * (1 - ease((t - T_HOLD) / (T_GONE - T_HOLD)));
