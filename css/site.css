@@ -156,9 +156,8 @@ a:focus-visible, summary:focus-visible {
 /* --- Landing: research cards -------------------------------------------- */
 .topics {
   list-style: none; margin: 0; padding: 0;
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: 0.75rem;
 }
-.topic-lead { grid-column: 1 / -1; }
 .topic a {
   display: flex; flex-direction: column; gap: 0.2rem; height: 100%;
   padding: 0.95rem 1.1rem 1rem; color: var(--ink);

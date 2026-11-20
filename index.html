@@ -47,7 +47,7 @@ title: ""
 <h2 id="research">Research</h2>
 <ul class="topics">
   {%- for t in site.data.research %}
-  <li class="topic{% if forloop.first %} topic-lead{% endif %}">
+  <li class="topic">
     <a href="{{ '/research/' | relative_url }}#{{ t.id }}">
       <span class="topic-head"><span class="topic-index">0{{ forloop.index }}</span><span class="topic-title">{{ t.title }}</span></span>
       <span class="topic-role">{{ t.role }}</span>

@@ -1,21 +1,22 @@
-# Research themes. Shown as numbered cards on the home page; each links to
-# its section on /research/ (the `id` is the anchor).
-- id: brown-dwarfs
-  title: "Origin of close-in brown dwarfs"
-  role: "Current focus"
-  blurb: "Did brown dwarfs on tight orbits migrate inward or form where we see them? I measure their orbital tilts, host-star metallicities, and atmospheric compositions to find out."
+# Research themes. Shown as four equal cards on the home page; each links to
+# its section on /research/ (the `id` is the anchor). Keep blurbs to about
+# 30 words so the cards stay the same height.
+- id: obliquities
+  title: "Stellar obliquities"
+  role: "OATMEAL survey"
+  blurb: "The tilt between a star's spin and its companion's orbit records how that companion arrived. I co-founded the OATMEAL survey to measure these tilts for brown dwarfs and compare them with hot Jupiters."
 
-- id: hot-stars
-  title: "Small planets around hot stars"
-  role: "PhD thesis"
-  blurb: "The first measurement of how common small, close-in planets are around A-type stars, using TESS. They turn out to be markedly rarer than around cooler stars."
+- id: demographics
+  title: "Population-level planet statistics"
+  role: "Demographics"
+  blurb: "Using large surveys like TESS and the California Legacy Survey, I measure how populations of planets and brown dwarfs change with host-star properties such as temperature and metallicity."
 
 - id: tess
   title: "Exoplanet discovery with TESS"
   role: "Software · TRICERATOPS"
-  blurb: "A Bayesian tool that separates real planets from false positives using TESS photometry alone, now credited with over 200 planet discoveries."
+  blurb: "TRICERATOPS, a Bayesian tool I built to separate real planets from false positives using TESS data alone, is now credited with more than 200 planet discoveries."
 
 - id: formation
   title: "Planet formation and evolution"
-  role: "Theory"
-  blurb: "Simulations of high-eccentricity tidal migration and of dust carried outward by magnetocentrifugal disk winds, compared against observed systems."
+  role: "Theory & atmospheres"
+  blurb: "Simulations of high-eccentricity migration and of dust carried outward by disk winds, plus a survey of brown dwarf atmospheres that traces where these objects formed."

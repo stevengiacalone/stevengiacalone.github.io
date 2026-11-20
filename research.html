@@ -3,7 +3,7 @@ layout: base
 title: "Research"
 permalink: /research/
 nav: research
-description: "Steven Giacalone's research: the origin of close-in brown dwarfs, small planets around hot stars, exoplanet discovery with TESS and TRICERATOPS, and planet formation and evolution."
+description: "Steven Giacalone's research: stellar obliquities, population-level planet statistics, exoplanet discovery with TESS and TRICERATOPS, and planet formation and evolution."
 ---
 {%- assign th = site.data.research -%}
 {%- capture pdf %}{{ '/files/' | relative_url }}{% endcapture -%}
@@ -20,32 +20,39 @@ description: "Steven Giacalone's research: the origin of close-in brown dwarfs, 
     <h2 id="{{ th[0].id }}">{{ th[0].title }}</h2>
     <p class="thread-role">{{ th[0].role }}</p>
     <p>
-      Brown dwarfs, objects traditionally classified as having 13–80 times the mass of Jupiter, are
-      thought to form far from their host stars or free-floating. Brown dwarfs orbiting close to their
-      stars have therefore been a mystery since their discovery decades ago. Did these massive companions
-      migrate inward from distant orbits, or did they form in situ through some unknown mechanism? To
-      answer this, I use ground-based observations that reveal the orbits, host-star properties, and
-      atmospheric compositions of brown dwarfs.
+      The angle between a star's spin axis and the orbital axis of its companion, called the stellar
+      obliquity, records the system's dynamical history. If the two are aligned, the companion most likely
+      formed in and migrated through a protoplanetary disk, like a planet. If they are misaligned, it was most
+      likely "kicked" inward by another object or captured by the star.
     </p>
-
-    <h3>Orbital tilts</h3>
     <p>
-      The angle between the host star's spin axis and the companion's orbital angular momentum, called
-      the stellar obliquity, records the system's dynamical history. If the two are aligned, the brown
-      dwarf most likely formed in and migrated through a protoplanetary disk, like a planet. If they are
-      misaligned, it was most likely "kicked" inward by another object or captured by the star. To find
-      out how close-in brown dwarfs reached their current orbits, I co-founded the OATMEAL survey, which
-      is more than doubling the number of these systems with obliquity measurements and enabling
-      population-level studies of brown dwarf orbits. See
-      <a href="{{ pdf }}Giacalone_etal_2024.pdf">Giacalone et al. (2024)</a> and
-      <a href="{{ pdf }}Giacalone_etal_2025a.pdf">Giacalone et al. (2025)</a>.
+      Brown dwarfs, objects traditionally classified as having 13–80 times the mass of Jupiter, are thought
+      to form far from their host stars or free-floating, so those on close orbits have been a mystery since
+      their discovery decades ago. To find out how they reached their current orbits, I co-founded the
+      OATMEAL survey, which is more than doubling the number of these systems with obliquity measurements and
+      enabling population-level studies of brown dwarf orbits
+      (<a href="{{ pdf }}Giacalone_etal_2024.pdf">Giacalone et al. 2024</a>). I also measure obliquities for
+      hot Jupiters to compare the two populations, including a hot Jupiter on a retrograde orbit around a
+      Sun-like star (<a href="{{ pdf }}Giacalone_etal_2025a.pdf">Giacalone et al. 2025</a>).
     </p>
     <figure class="fig">
       <img src="{{ pdf }}fig1.png" loading="lazy" alt="Doppler shadow of GPX-1 b and the Rossiter–McLaughlin signal of KELT-23A b.">
       <figcaption>The Doppler shadow of GPX-1 b (Giacalone et al. 2024) and the Rossiter–McLaughlin signal of KELT-23A b (Giacalone et al. 2025). These spectroscopic signals were used to measure the stellar obliquities of the two systems.</figcaption>
     </figure>
+  </div>
+</section>
 
-    <h3>Stellar metallicities</h3>
+<section class="thread">
+  <div class="thread-index">02</div>
+  <div class="thread-body">
+    <h2 id="{{ th[1].id }}">{{ th[1].title }}</h2>
+    <p class="thread-role">{{ th[1].role }}</p>
+    <p>
+      How common planets are, and how that depends on the stars they orbit, holds clues to how they form.
+      I use large, homogeneous surveys to measure these trends across whole populations.
+    </p>
+
+    <h3>Giant planets versus brown dwarfs</h3>
     <p>
       Stellar metallicity correlates strongly with how often giant planets and low-mass stellar companions
       occur. Giant planets are more common around metal-rich stars, whereas low-mass stellar companions
@@ -63,21 +70,7 @@ description: "Steven Giacalone's research: the origin of close-in brown dwarfs, 
       <figcaption>From Giacalone et al. (2026): the stellar metallicity distribution changes at a companion mass of about 27 Jupiter masses. Brown dwarfs less massive than this may have formed like giant planets.</figcaption>
     </figure>
 
-    <h3>Atmospheric compositions</h3>
-    <p>
-      I am leading a survey to measure the atmospheric compositions of close-in brown dwarfs with
-      high-resolution, near-infrared spectroscopy. The goal is to measure their carbon-to-oxygen ratios,
-      which trace how and where they formed. Comparing these with giant-planet measurements will show
-      whether brown dwarfs and giant planets share a formation pathway.
-    </p>
-  </div>
-</section>
-
-<section class="thread">
-  <div class="thread-index">02</div>
-  <div class="thread-body">
-    <h2 id="{{ th[1].id }}">{{ th[1].title }}</h2>
-    <p class="thread-role">{{ th[1].role }}</p>
+    <h3>Small planets around hot stars</h3>
     <p>
       For my PhD thesis, I measured how common small planets are close to A-type stars for the first time.
       A-type stars are hot stars roughly twice the size of the Sun. Those properties may give their planets
@@ -142,6 +135,14 @@ description: "Steven Giacalone's research: the origin of close-in brown dwarfs, 
       amounts of crystalline dust in the outer regions of protoplanetary disks, both of which could only have
       formed at high temperatures close to the star. I showed that disk-wind transport can explain the observed
       crystallinity fractions in outer disks, suggesting it plays an important role in planet formation.
+    </p>
+
+    <h3>Brown dwarf atmospheres</h3>
+    <p>
+      I am leading a survey to measure the atmospheric compositions of close-in brown dwarfs with
+      high-resolution, near-infrared spectroscopy. The goal is to measure their carbon-to-oxygen ratios,
+      which trace how and where they formed. Comparing these with giant-planet measurements will show
+      whether brown dwarfs and giant planets share a formation pathway.
     </p>
   </div>
 </section>
