@@ -137,12 +137,13 @@
         if (r2 > 1) continue;
         var I = intensity(Math.sqrt(r2));
         var v = x * cl - y * sl;                    // -1 (toward us) .. +1 (away)
-        var t = Math.abs(v), col = v < 0 ? C.blue : C.red;
-        var base = 236 * I;
+        var col = v < 0 ? C.blue : C.red;
+        var m = Math.min(1, 1.15 * Math.pow(Math.abs(v), 0.6));   // colour strength
+        var base = 240 * I;
         var o = (py * W + px) * 4;
-        img.data[o]     = base * (1 - 0.55 * t) + col[0] * 0.55 * t * I;
-        img.data[o + 1] = base * (1 - 0.55 * t) + col[1] * 0.55 * t * I;
-        img.data[o + 2] = base * (1 - 0.55 * t) + col[2] * 0.55 * t * I;
+        img.data[o]     = base * (1 - m) + col[0] * m * I;
+        img.data[o + 1] = base * (1 - m) + col[1] * m * I;
+        img.data[o + 2] = base * (1 - m) + col[2] * m * I;
         img.data[o + 3] = 255;
       }
     }
@@ -258,7 +259,7 @@
   }
 
   // --- animation loop ---------------------------------------------------
-  var start = 0, playing = !still, raf = 0, k = still ? N - 1 : 0, readout = document.getElementById("rm-readout");
+  var start = 0, playing = !still, raf = 0, k = still ? N - 1 : 0;
   function render() {
     // Sky view shows mid-transit when everything is drawn at once.
     var kSky = still && k === N - 1 ? Math.round(N / 2) : k;
@@ -275,17 +276,10 @@
   function stop() { cancelAnimationFrame(raf); raf = 0; }
 
   var buttons = document.querySelectorAll(".rm-controls [data-lambda]");
-  var notes = {
-    "0": "Aligned: the companion blocks the side turning toward us, then the side turning away. The velocity swings up then down, and the shadow runs diagonally from one side of the line to the other.",
-    "45": "Tilted: the companion spends more time over one side of the star, so the signal becomes lopsided and the shadow's slope changes.",
-    "90": "Polar: the companion crosses parallel to the spin axis, covering light moving at nearly the same speed throughout. The velocity shift stays on one side, and the shadow stays at one velocity, forming a vertical stripe.",
-    "180": "Retrograde: the companion orbits against the star's spin, so every signal is reversed: the velocity swings down then up, and the shadow runs the opposite way."
-  };
   function select(btn) {
     for (var i = 0; i < buttons.length; i++) buttons[i].setAttribute("aria-pressed", buttons[i] === btn ? "true" : "false");
     lam = parseFloat(btn.getAttribute("data-lambda"));
     compute();
-    if (readout) readout.textContent = notes[String(lam)] || "";
     if (playing) { stop(); play(); } else { k = N - 1; render(); }
   }
   for (var i = 0; i < buttons.length; i++) {
@@ -302,7 +296,6 @@
   }
 
   compute();
-  if (readout) readout.textContent = notes["0"];
   render();
   if (playing) play();
 
