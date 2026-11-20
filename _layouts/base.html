@@ -36,7 +36,6 @@
     "image": "{{ site.author.photo | absolute_url }}",
     "email": "mailto:{{ site.author.email }}",
     "sameAs": [
-      "{{ site.author.googlescholar }}",
       "https://github.com/{{ site.author.github }}",
       "https://orcid.org/{{ site.author.orcid }}",
       "{{ site.author.linkedin }}"
@@ -67,13 +66,11 @@
   <footer class="site-foot">
     <div class="wrap foot-in">
       <nav class="foot-links" aria-label="Profiles">
-        <a href="{{ site.author.googlescholar }}">Google Scholar</a>
-        <a href="{{ site.author.scix }}">SciX</a>
-        <a href="{{ site.author.arxiv }}">arXiv</a>
-        <a href="https://orcid.org/{{ site.author.orcid }}">ORCID</a>
-        <a href="https://github.com/{{ site.author.github }}">GitHub</a>
-        <a href="{{ site.author.linkedin }}">LinkedIn</a>
         <a href="{{ site.author.cv | relative_url }}">CV</a>
+        <a href="{{ site.author.linkedin }}">LinkedIn</a>
+        <a href="https://github.com/{{ site.author.github }}">GitHub</a>
+        <a href="{{ site.author.scix }}">SciX</a>
+        <a href="https://orcid.org/{{ site.author.orcid }}">ORCID</a>
         <a href="mailto:{{ site.author.email }}">Email</a>
       </nav>
       <p class="copy">© {{ site.time | date: '%Y' }} {{ site.author.name }}</p>

@@ -9,9 +9,6 @@ layout: base
   <p class="paper-links">
     <a class="btn" href="{{ page.paperurl | relative_url }}">PDF</a>
     <a class="btn" href="{{ page.scix }}">SciX</a>
-    {%- if page.arxiv %}
-    <a class="btn" href="{{ page.arxiv }}">arXiv</a>
-    {%- endif %}
   </p>
   {%- if page.excerpt %}
   <p class="tldr"><span class="minor">In brief</span>{{ page.excerpt | strip_html }}</p>

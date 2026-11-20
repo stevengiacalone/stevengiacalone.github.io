@@ -35,7 +35,6 @@ journal: "AJ"            # short journal name (not currently displayed)
 volume: "171, 12"
 paperurl: '/files/Giacalone_etal_2026.pdf'
 scix: "https://scixplorer.org/abs/…/abstract"
-arxiv: "https://arxiv.org/abs/…"   # optional, adds an arXiv button on the paper page
 layout: paper
 first_author: true
 authors:
