@@ -4,7 +4,7 @@
 - id: obliquities
   title: "Stellar obliquities"
   role: "OATMEAL survey"
-  blurb: "The tilt between a star's spin and its companion's orbit records how that companion arrived. I co-founded the OATMEAL survey to measure these tilts for brown dwarfs and compare them with hot Jupiters."
+  blurb: "The tilt between a star's spin and its companion's orbit records how the system dynamically evolved. I co-founded the OATMEAL survey to measure these tilts for brown dwarfs and compare them with hot Jupiters."
 
 - id: demographics
   title: "Population-level planet statistics"
