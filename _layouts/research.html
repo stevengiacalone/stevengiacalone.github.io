@@ -1,0 +1,45 @@
+---
+layout: base
+nav: research
+---
+{%- assign threads = site.data.research -%}
+{%- for t in threads -%}
+  {%- if t.id == page.thread -%}{%- assign th = t -%}{%- assign idx = forloop.index0 -%}{%- endif -%}
+{%- endfor -%}
+{%- assign n = threads.size -%}
+<article class="thread-page">
+  <p class="kicker"><a href="{{ '/#research' | relative_url }}">← Research</a></p>
+  <p class="thread-num">0{{ idx | plus: 1 }} / 0{{ n }}</p>
+  <h1 class="page-title">{{ th.title }}</h1>
+  <p class="thread-role">{{ th.role }}</p>
+  <div class="thread-body">
+    {{ content }}
+  </div>
+
+  {%- assign papers = site.publications | where: "topic", page.thread | where: "first_author", true | sort: "date" | reverse -%}
+  {%- if papers.size > 0 %}
+  <h2>Papers</h2>
+  <ul class="pubs">
+    {%- for p in papers %}
+    <li>
+      <p class="pub-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></p>
+      <p class="pub-authors">{% include authors.html names=p.authors %}</p>
+      <p class="pub-venue">{{ p.venue }}, {{ p.volume }} ({{ p.year }})</p>
+      <p class="pub-links"><a href="{{ p.paperurl | relative_url }}">PDF</a><a href="{{ p.scix }}">SciX</a><a href="{{ p.url | relative_url }}">Abstract</a></p>
+    </li>
+    {%- endfor %}
+  </ul>
+  {%- endif %}
+
+  <nav class="thread-pager" aria-label="Research topics">
+    {%- if idx > 0 %}
+    {%- assign prev_i = idx | minus: 1 %}{%- assign prev = threads[prev_i] %}
+    <a class="pager-prev" href="{{ '/research/' | relative_url }}{{ prev.id }}/"><span class="minor">Previous</span>{{ prev.title }}</a>
+    {%- else %}<span></span>{%- endif %}
+    {%- assign next_i = idx | plus: 1 %}
+    {%- if next_i < n %}
+    {%- assign next = threads[next_i] %}
+    <a class="pager-next" href="{{ '/research/' | relative_url }}{{ next.id }}/"><span class="minor">Next</span>{{ next.title }}</a>
+    {%- endif %}
+  </nav>
+</article>

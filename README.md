@@ -1,51 +1,72 @@
-# Academic Pages
+# stevengiacalone.github.io
 
-![pages-build-deployment](https://github.com/academicpages/academicpages.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)
+Personal website of Steven Giacalone. A small, hand-written Jekyll site that GitHub Pages
+builds automatically on every push. No theme, no framework, no web fonts.
 
-Academic Pages is a Github Pages template for academic websites.
+## Where things live
 
-# Getting Started
+| To change…                         | Edit                                   |
+| ---------------------------------- | -------------------------------------- |
+| Name, title, links, email, address | `_config.yml` (the `author:` block)    |
+| About paragraphs                   | `index.html`                           |
+| Research cards on the home page    | `_data/research.yml`                   |
+| Long-form research page            | `research.html`                        |
+| CV (linked from the header and nav) | replace `files/CV_StevenGiacalone.pdf` (keep the name) |
+| Publications                       | `_publications/*.md` (one file per paper) |
+| Colours, spacing, type             | `css/site.css` (tokens at the top)     |
+| Star-field background              | `js/sky.js`                            |
 
-1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
-1. Click the "Use this template" button in the top right.
-1. On the "New repository" page, enter your repository name as "[your GitHub username].github.io", which will also be your website's URL.
-1. Set site-wide configuration and add your content.
-1. Upload any files (like PDFs, .zip files, etc.) to the `files/` directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.
-1. Check status by going to the repository settings, in the "GitHub pages" section
-1. (Optional) Use the Jupyter notebooks or python scripts in the `markdown_generator` folder to generate markdown files for publications and talks from a TSV file.
+### Adding a paper
 
-See more info at https://academicpages.github.io/
+Copy any file in `_publications/`, rename it, and update the front matter. The body is the
+abstract. Put the PDF in `files/`. Only papers with `first_author: true` appear in the list on
+the home page; the others keep their pages so old links still work.
 
-## Running Locally
+```yaml
+---
+title: "Paper title"
+collection: publications
+permalink: /publication/Giacalone_etal_2026
+excerpt: 'One-sentence summary shown on the paper page.'
+date: 2026-03-01
+year: 2026
+venue: 'The Astronomical Journal'
+journal: "AJ"            # short journal name (not currently displayed)
+volume: "171, 12"
+paperurl: '/files/Giacalone_etal_2026.pdf'
+scix: "https://scixplorer.org/abs/…/abstract"
+layout: paper
+first_author: true
+authors:
+  - "S. Giacalone"
+  - "A. Coauthor"
+  - "et al."
+---
+Abstract text…
+```
 
-When you are initially working your website, it is very useful to be able to preview the changes locally before pushing them to GitHub. To work locally you will need to:
+Papers are grouped by `year` and sorted by `date`, newest first. `S. Giacalone` is bolded
+automatically.
 
-1. Clone the repository and made updates as detailed above.
-1. Make sure you have ruby-dev, bundler, and nodejs installed
-    
-    On most Linux distribution and [Windows Subsystem Linux](https://learn.microsoft.com/en-us/windows/wsl/about) the command is:
-    ```bash
-    sudo apt install ruby-dev ruby-bundler nodejs
-    ```
-    On MacOS the commands are:
-    ```bash
-    brew install ruby
-    brew install node
-    gem install bundler
-    ```
-1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
-1. Run `jekyll serve -l -H localhost` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change.
+## Dark versions of figures
 
-If you are running on Linux it may be necessary to install some additional dependencies prior to being able to run locally: `sudo apt install build-essential gcc make`
+Figures on the research pages use dark-theme copies (`files/*-dark.png`) of the
+original light figures. To convert a new one (needs Python with numpy, Pillow
+and scikit-image):
 
-# Maintenance
+```
+python3 scripts/darkfig.py files/fig.png files/fig-dark.png              # line/point plots
+python3 scripts/darkfig.py files/fig.png files/fig-dark.png --invert-all # plots with a colour scale
+```
 
-Bug reports and feature requests to the template should be [submitted via GitHub](https://github.com/academicpages/academicpages.github.io/issues/new/choose). For questions concerning how to style the template, please feel free to start a [new discussion on GitHub](https://github.com/academicpages/academicpages.github.io/discussions).
+## Old URLs
 
-This repository was forked (then detached) by [Stuart Geiger](https://github.com/staeiou) from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/), which is © 2016 Michael Rose and released under the MIT License (see LICENSE.md). It is currently being maintained by [Robert Zupko](https://github.com/rjzupkoii) and additional maintainers would be welcomed.
+`/publications/`, `/contact/` and `/about/` redirect to the matching section of the home page;
+`/cv/` and `/resume/` go straight to the CV PDF; `/outreach/` goes to the home page. `/research/` and `/publication/<paper>` still exist.
 
-## Bugfixes and enhancements
+## Preview locally
 
-If you have bugfixes and enhancements that you would like to submit as a pull request, you will need to [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) this repository as opposed to using it as a template. This will also allow you to [synchronize your copy](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) of template to your fork as well.
-
-Unfortunately, one logistical issue with a template theme like Academic Pages that makes it a little tricky to get bug fixes and updates to the core theme. If you use this template and customize it, you will probably get merge conflicts if you attempt to synchronize. If you want to save your various .yml configuration files and markdown files, you can delete the repository and fork it again. Or you can manually patch.
+```
+bundle install
+bundle exec jekyll serve
+```

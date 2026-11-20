@@ -1,0 +1,77 @@
+---
+layout: research
+title: "Exoplanet discovery with TESS"
+thread: tess
+permalink: /research/tess/
+description: "Exoplanet discovery with TESS and TRICERATOPS, a Bayesian tool for separating real planets from false positives."
+---
+{%- capture pdf %}{{ '/files/' | relative_url }}{% endcapture -%}
+
+<p class="intro">
+  NASA's Transiting Exoplanet Survey Satellite (TESS), launched in 2018, finds planets by watching for the
+  tiny dip in a star's brightness when a planet passes in front of it. The catch is that many other things
+  can cause the same dip, such as two stars eclipsing each other, or a faint background star whose light is
+  blended in with the target. Confirming each candidate with large telescopes is slow and expensive, and
+  TESS produces thousands of them.
+</p>
+
+<h3>TRICERATOPS: telling real planets from impostors</h3>
+<p>
+  To clear that bottleneck I built TRICERATOPS, a statistical tool that weighs every plausible explanation
+  for a signal, including nearby stars that could be the real source, and calculates the probability that it
+  comes from a genuine planet (<a href="{{ pdf }}Giacalone_etal_2021.pdf">Giacalone et al. 2021</a>).
+  This process is referred to as "statistical validation."
+</p>
+
+<figure class="rm-demo tri-demo" aria-labelledby="tri-caption">
+  <div class="rm-controls">
+    <p class="tri-status" id="tri-status" aria-live="off">Fitting each model to the data…</p>
+    <button type="button" id="tri-play" class="rm-play">Pause</button>
+  </div>
+  <div class="tri-rows">
+    <div class="tri-row" id="tri-row-pl">
+      <div class="tri-head">
+        <p class="tri-name"><span class="tri-num">Model 1</span> Transiting planet</p>
+        <span class="tri-verdict tri-good" id="tri-v-pl" hidden>Most probable</span>
+        <div class="tri-prob"><span class="tri-bar"><span id="tri-bar-pl" style="width:0%"></span></span><span class="tri-pct" id="tri-p-pl">–</span></div>
+      </div>
+      <div class="tri-panels">
+        <canvas id="tri-sys-pl" class="tri-sys" role="img" aria-label="A planet crossing in front of the target star."></canvas>
+        <canvas id="tri-lc-pl" class="tri-lc" role="img" aria-label="Phase-folded light curve with the best-fitting planet model: a flat-bottomed, U-shaped dip that matches the data."></canvas>
+      </div>
+    </div>
+    <div class="tri-row" id="tri-row-eb">
+      <div class="tri-head">
+        <p class="tri-name"><span class="tri-num">Model 2</span> Hierarchical eclipsing binary</p>
+        <span class="tri-verdict tri-bad" id="tri-v-eb" hidden>Unlikely</span>
+        <div class="tri-prob"><span class="tri-bar"><span id="tri-bar-eb" style="width:0%"></span></span><span class="tri-pct" id="tri-p-eb">–</span></div>
+      </div>
+      <div class="tri-panels">
+        <canvas id="tri-sys-eb" class="tri-sys" role="img" aria-label="The target star and a bound pair of fainter stars that eclipse each other."></canvas>
+        <canvas id="tri-lc-eb" class="tri-lc" role="img" aria-label="The same light curve with the best-fitting eclipsing binary model: a V-shaped dip that does not match the data."></canvas>
+      </div>
+    </div>
+  </div>
+  <figcaption id="tri-caption">
+    How TRICERATOPS works, in its simplest form. A dip in a star's brightness could come from a planet, or from
+    something else, such as a pair of stars bound to the target that eclipse each other. TESS pixels are large,
+    so their light blends with the target's and their eclipse looks like a shallow dip. TRICERATOPS fits each
+    scenario to the light curve and weighs how well each explains the data, together with what we know about the
+    star and its neighbors, to calculate the probability of each. Here, the dip's flat bottom and sharp edges match the planet model, while the eclipsing pair's V-shaped dip fits poorly.
+    The real tool considers many more scenarios.
+  </figcaption>
+</figure>
+<script src="{{ '/js/triceratops.js' | relative_url }}" defer></script>
+
+<h3>What it has found</h3>
+<p>
+  TRICERATOPS is now widely used across the exoplanet community and credited with more than 200 planet
+  discoveries, a number that continues to grow every day. During my PhD, I used my tool to statistically
+  validate 13 hot, potentially rocky planets that are prime targets for the James Webb Space Telescope to study
+  the surfaces and atmospheres of rocky worlds
+  (<a href="{{ pdf }}Giacalone_etal_2022a.pdf">Giacalone et al. 2022a</a>). Many of these planets are now
+  active targets of JWST programs. I also used it to statistically validate HD 56414 b, a rare Neptune-size
+  planet orbiting a young A-type star. It is one of only four known planets smaller than Jupiter around an
+  early-type star (<a href="{{ pdf }}Giacalone_etal_2022b.pdf">Giacalone et al. 2022b</a>).
+</p>
+<p class="callout"><a href="https://github.com/stevengiacalone/triceratops">TRICERATOPS on GitHub →</a></p>

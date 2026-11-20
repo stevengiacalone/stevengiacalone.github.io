@@ -1,0 +1,77 @@
+---
+layout: base
+title: ""
+---
+
+<div class="idcard">
+  <img class="portrait" src="{{ site.author.photo | relative_url }}" width="148" height="148"
+       alt="Steven Giacalone, astrophysicist at Caltech">
+  <div class="ident">
+    <h1>{{ site.author.name }}, PhD</h1>
+    <p class="titles">
+      {{ site.author.title }}<br>
+      <a href="{{ site.author.employer_url }}">{{ site.author.employer }}</a><br>
+      {{ site.author.location }} <span class="pronouns">· {{ site.author.pronouns }}</span>
+    </p>
+    {% include idlinks.html %}
+  </div>
+</div>
+
+<h2 id="about">About</h2>
+<div class="bio">
+  <p>
+    I am a Postdoctoral Researcher at the <a href="https://nexsci.caltech.edu/">NASA Exoplanet Science
+    Institute</a> (NExScI) at Caltech/IPAC. Prior to my current appointment, I was previously an NSF
+    Astronomy &amp; Astrophysics Postdoctoral Fellow in the Caltech Department of Astronomy. I study how
+    planetary systems form and evolve by connecting individual exoplanet discoveries to population-level
+    demographics, using ground-based telescopes and large datasets from space missions like
+    TESS. My current work tackles a fundamental question: do giant planets
+    and brown dwarfs form the same way? I am answering it by measuring their orbits, atmospheres, and host
+    stars to pinpoint where planet-like formation gives way to star-like formation.
+  </p>
+  <p>
+    I earned my PhD in Astrophysics from UC Berkeley in 2023, working with
+    <span class="nowrap">Courtney Dressing</span> to discover planets with TESS and to learn how stellar
+    mass and metallicity shape planetary populations. My thesis focused on hot, terrestrial planets
+    that make favorable JWST targets and on the demographics of planets orbiting hot stars. Along the way, I developed an expertise in observational astronomy, collecting data across more than 100
+    nights with telescopes all around the world.
+  </p>
+  <p>
+    I got my start in research as an undergraduate at the University of Chicago, where I worked with
+    <span class="nowrap">Arieh Königl</span> on simulations of planetary migration and of dust transport
+    in protoplanetary disks by magnetocentrifugal winds. I earned a B.A. in Physics with a specialization
+    in Astrophysics there in 2017.
+  </p>
+</div>
+
+<h2 id="research">Research</h2>
+<ul class="topics">
+  {%- for t in site.data.research %}
+  <li class="topic">
+    <a href="{{ '/research/' | relative_url }}{{ t.id }}/">
+      <span class="topic-head"><span class="topic-index">0{{ forloop.index }}</span><span class="topic-title">{{ t.title }}</span></span>
+      <span class="topic-role">{{ t.role }}</span>
+      <span class="topic-blurb">{{ t.blurb }}</span>
+    </a>
+  </li>
+  {%- endfor %}
+</ul>
+
+<h2 id="publications">Publications</h2>
+<p class="section-note">
+  More than 140 peer-reviewed publications in total; the full list is on
+  <a href="{{ site.author.scix }}">SciX</a>. My first-author papers are below.
+</p>
+{% include publist.html %}
+
+<h2 id="contact">Contact</h2>
+<div class="contact">
+  <div>
+    <p class="minor">Email</p>
+    <p><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></p>
+  </div>
+  <div>
+    <p class="minor">Mail</p>
+    <p>{% for line in site.author.address %}{{ line }}{% unless forloop.last %}<br>{% endunless %}{% endfor %}</p>
+  </div>
+</div>

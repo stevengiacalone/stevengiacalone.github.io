@@ -1,0 +1,71 @@
+---
+layout: research
+title: "Population-level planet statistics"
+thread: demographics
+permalink: /research/demographics/
+description: "Population-level statistics of planets and brown dwarfs: the giant planet to brown dwarf transition and small planets around hot stars."
+---
+{%- capture pdf %}{{ '/files/' | relative_url }}{% endcapture -%}
+
+<p class="intro">
+  A single discovery tells you that a planet exists. A population tells you how planets are made. Just as
+  a census reveals patterns no single household could, counting how often different kinds of planets
+  appear around different kinds of stars lets us test our ideas about planet formation. I use large,
+  carefully controlled surveys to make those inferences.
+</p>
+
+<h3>Where giant planets end and brown dwarfs begin</h3>
+<p>
+  There are two ways to build a giant object around a star. In the <strong>bottom-up</strong> route, a rocky
+  core grows first and then sweeps up gas, the way Jupiter is thought to have formed. In the
+  <strong>top-down</strong> route, a clump of gas collapses under its own gravity, the way stars form. The
+  bottom-up route needs plenty of solid material, so it works best around stars rich in heavy elements
+  (astronomers call this <strong>metallicity</strong>). The top-down route barely cares.
+</p>
+<p>
+  That makes a star's metallicity a fingerprint of how its companion formed. Using the California Legacy
+  Survey, a 30-year search that found hundreds of planets and brown dwarfs, I found that companions lighter
+  than about 27 Jupiter masses tend to orbit metal-rich stars, while heavier ones do not. That puts the
+  dividing line between "planet-like" and "star-like" formation well above the 13 Jupiter masses
+  traditionally used to separate planets from brown dwarfs
+  (<a href="{{ pdf }}Giacalone_etal_2026.pdf">Giacalone et al. 2026</a>).
+</p>
+<figure class="fig">
+  <img src="{{ pdf }}fig2-dark.png" loading="lazy" alt="Host-star metallicity versus companion mass.">
+  <figcaption>Host-star metallicity versus companion mass (Giacalone et al. 2026). Companions to the left of the shaded band orbit metal-rich stars, as planets do; those to the right look more like stellar companions. The switch happens near 27 Jupiter masses, providing a new empirical measurement of the upper limit of planet formation.</figcaption>
+</figure>
+
+<h3>Why hot stars have fewer small planets</h3>
+<p>
+  A-type stars are hotter than the Sun and about twice its size. Planets around them are hard to find, so
+  earlier missions such as Kepler largely skipped them. NASA's TESS mission, which watches nearly the whole
+  sky, finally made a proper census possible. For my PhD thesis I searched more than 20,000 of these stars
+  and made the first measurement of how often small, close-in planets orbit them. The answer: rarely.
+  Planets a few times the size of Earth may be more than six times less common around A-type stars than
+  around stars like the Sun
+  (<a href="{{ pdf }}Giacalone_Dressing_2025.pdf">Giacalone &amp; Dressing 2025</a>). This rarity can be explained if planet migration through the protoplanetary disk halts at the dust
+  sublimation radius, which is larger for hotter stars (see animation below).
+</p>
+<figure class="rm-demo" aria-labelledby="sub-caption">
+  <div class="rm-controls rm-controls-end">
+    <button type="button" id="sub-play" class="rm-play">Pause</button>
+  </div>
+  <div class="rm-grid rm-grid-2">
+    <div class="rm-panel">
+      <p class="rm-label">Sun-like star</p>
+      <canvas id="sub-sun" class="rm-canvas rm-square" role="img" aria-label="A planet migrates inward through the dusty disk of a Sun-like star, stalls at the nearby inner edge of the dust, and after the disk disperses is pulled closer to the star by tides."></canvas>
+    </div>
+    <div class="rm-panel">
+      <p class="rm-label">Hot A-type star</p>
+      <canvas id="sub-a" class="rm-canvas rm-square" role="img" aria-label="Around a hot A-type star the dust ends much farther out. The migrating planet stalls there and, after the disk disperses, is too far away for tides to pull it in, so it is stranded on a wider orbit."></canvas>
+    </div>
+  </div>
+  <figcaption id="sub-caption">
+    Why hot stars may have fewer close-in small planets. Small planets are thought to form in the dusty disk
+    around a young star and migrate inward until they reach the <strong>dust sublimation radius</strong>, where
+    the star's heat vaporizes the dust. Around a Sun-like star this edge is close in, and once the disk is gone,
+    tides raised on the star can draw the planet in further. A hot A-type star vaporizes dust much farther out,
+    so migrating planets stall on wider orbits, too far away for tides to pull them closer. Not to scale.
+  </figcaption>
+</figure>
+<script src="{{ '/js/sublimation.js' | relative_url }}" defer></script>
