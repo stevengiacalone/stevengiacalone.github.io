@@ -171,7 +171,7 @@
   };
   function fmt(p) {
     var v = p * 100;
-    if (v > 99.9) return ">99.9%"; if (v < 0.1) return "<0.1%";
+    if (v > 99) return ">99%"; if (v < 1) return "<1%";
     if (v > 99 || v < 1) return v.toFixed(1) + "%";
     return Math.round(v) + "%";
   }
