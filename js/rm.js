@@ -9,7 +9,8 @@
    - Surface velocity under the companion: v = x cos(lambda) - y sin(lambda),
      in units of v sin i; negative = toward us (blueshift).
    - Blocking light at velocity v shifts the measured velocity by -f * I * v.
-   - The shadow is a Gaussian sliver at v in the line-profile residuals.
+   - The Doppler shadow is the local line removed at v from the
+     disk-integrated, rotationally broadened absorption line.
    With prefers-reduced-motion the transit is drawn complete and never animates. */
 (function () {
   var sky = document.getElementById("rm-sky");
@@ -33,7 +34,6 @@
 
   var RP = 0.13, B = 0.3, U = 0.6, X0 = -1.45, X1 = 1.45;
   var N = 220;                       // time steps across the transit
-  var NV = 120;                      // velocity bins in the shadow map
   var DURATION = 6500, HOLD = 1400;  // ms
   var lam = 0;                       // degrees
   var steps = [];                    // per-time-step model values
@@ -66,31 +66,6 @@
     }
     // Fixed scale so the four orientations compare fairly.
     maxA = 0.95;
-    shadowImg = buildShadow();
-  }
-
-  // The full shadow map (NV velocity bins x N time steps) as a small image,
-  // time running upward. Drawn scaled, revealing rows as the transit proceeds.
-  var shadowImg = null;
-  function buildShadow() {
-    var img = new ImageData(NV, N), sig = 0.09;
-    for (var i = 0; i < N; i++) {
-      var st = steps[i], row = N - 1 - i;
-      for (var j = 0; j < NV; j++) {
-        var o = (row * NV + j) * 4;
-        img.data[o] = 11; img.data[o + 1] = 12; img.data[o + 2] = 15; img.data[o + 3] = 255;
-        if (st.depth <= 0) continue;
-        var v = -1 + 2 * (j + 0.5) / NV;
-        var a = Math.min(1, 1.1 * st.depth * Math.exp(-0.5 * Math.pow((v - st.v) / sig, 2)));
-        var col = v < 0 ? C.blue : C.red;
-        img.data[o]     = 11 + (col[0] - 11) * a;
-        img.data[o + 1] = 12 + (col[1] - 12) * a;
-        img.data[o + 2] = 15 + (col[2] - 15) * a;
-      }
-    }
-    var cv = document.createElement("canvas"); cv.width = NV; cv.height = N;
-    cv.getContext("2d").putImageData(img, 0, 0);
-    return cv;
   }
 
   // --- canvas sizing ----------------------------------------------------
@@ -233,29 +208,79 @@
     c.fillText("velocity shift", 0, 0); c.restore();
   }
 
-  // --- Doppler shadow ---------------------------------------------------
-  function drawShadow(k) {
+  // --- Doppler shadow in the absorption line ---------------------------
+  // Disk-integrated line = rotational broadening kernel (limb-darkened)
+  // convolved with a narrow local line. The companion removes the local line
+  // at the velocity it covers, leaving a bump that slides across the profile.
+  var NVL = 241, VMAX = 1.45, SIG = 0.07, DEPTH = 0.62, BUMP = 0.42, BSIG = 0.1;
+  var vGrid = [], prof = [];
+  (function buildProfile() {
+    var ker = [], ksum = 0;
+    for (var i = 0; i < NVL; i++) {
+      var v = -VMAX + 2 * VMAX * i / (NVL - 1); vGrid.push(v);
+      var q = 1 - v * v;
+      var kv = q > 0 ? 2 * (1 - U) * Math.sqrt(q) + 0.5 * Math.PI * U * q : 0;
+      ker.push(kv); ksum += kv;
+    }
+    var peak = 0;
+    for (var j = 0; j < NVL; j++) {
+      var acc = 0;
+      for (var m = 0; m < NVL; m++) acc += ker[m] * Math.exp(-0.5 * Math.pow((vGrid[j] - vGrid[m]) / SIG, 2));
+      prof.push(acc); if (acc > peak) peak = acc;
+    }
+    for (var n = 0; n < NVL; n++) prof[n] /= peak;   // absorption depth, peak = 1
+  })();
+
+  function drawLine(k) {
     var g = fit(sh); if (!g) return;
     var c = g.c, w = g.w, h = g.h;
     c.clearRect(0, 0, w, h);
     var padL = 26, padB = 30, x0 = padL, x1 = w - 8, y0 = 6, y1 = h - padB;
-    c.fillStyle = "#0b0c0f"; c.fillRect(x0, y0, x1 - x0, y1 - y0);
-    // Reveal rows 0..k (time runs upward, so they sit at the bottom of the image).
-    var rows = k + 1, H = y1 - y0;
-    c.imageSmoothingEnabled = true;
-    c.drawImage(shadowImg, 0, N - rows, NV, rows, x0, y1 - H * rows / N, x1 - x0, H * rows / N);
-    // current-time marker
-    var yk = y1 - H * rows / N;
-    c.strokeStyle = rgba([255, 255, 255], 0.35); c.lineWidth = 1;
-    c.beginPath(); c.moveTo(x0, yk); c.lineTo(x1, yk); c.stroke();
-    // centre line and frame
-    c.strokeStyle = C.rule; c.setLineDash([3, 4]);
-    c.beginPath(); c.moveTo((x0 + x1) / 2, y0); c.lineTo((x0 + x1) / 2, y1); c.stroke(); c.setLineDash([]);
     frame(c, w, h, padL, padB);
+    var top = y0 + (y1 - y0) * 0.14, bot = y1 - (y1 - y0) * 0.08;
+    function X(v) { return x0 + (x1 - x0) * (v + VMAX) / (2 * VMAX); }
+    function Y(f) { return top + (1 - f) / DEPTH * (bot - top); }   // f = normalized flux
+
+    var st = steps[k], bump = st.depth * BUMP;           // greatly exaggerated for visibility
+    var cur = [], ref = [];
+    for (var i = 0; i < NVL; i++) {
+      var a = DEPTH * prof[i];
+      var b = bump > 0 ? DEPTH * bump * Math.exp(-0.5 * Math.pow((vGrid[i] - st.v) / BSIG, 2)) : 0;
+      ref.push(1 - a); cur.push(1 - Math.max(0, a - b));
+    }
+    // centre line
+    c.strokeStyle = C.rule; c.setLineDash([3, 4]);
+    c.beginPath(); c.moveTo(X(0), y0); c.lineTo(X(0), y1); c.stroke(); c.setLineDash([]);
+    // shadow fill between the normal line and the transit line
+    if (bump > 0) {
+      c.beginPath();
+      for (var i2 = 0; i2 < NVL; i2++) { var xx = X(vGrid[i2]); if (i2 === 0) c.moveTo(xx, Y(ref[i2])); else c.lineTo(xx, Y(ref[i2])); }
+      for (var i3 = NVL - 1; i3 >= 0; i3--) c.lineTo(X(vGrid[i3]), Y(cur[i3]));
+      c.closePath();
+      var base = st.v < 0 ? C.blue : C.red, mix = Math.min(1, 0.3 + 1.6 * Math.abs(st.v));
+      c.fillStyle = rgba([Math.round(240 + (base[0] - 240) * mix), Math.round(240 + (base[1] - 240) * mix),
+                          Math.round(240 + (base[2] - 240) * mix)], 0.88);
+      c.fill();
+    }
+    // normal (out-of-transit) line, faint
+    c.strokeStyle = rgba([255, 255, 255], 0.28); c.lineWidth = 1.2; c.setLineDash([4, 3]);
+    c.beginPath();
+    for (var i4 = 0; i4 < NVL; i4++) { var x4 = X(vGrid[i4]); if (i4 === 0) c.moveTo(x4, Y(ref[i4])); else c.lineTo(x4, Y(ref[i4])); }
+    c.stroke(); c.setLineDash([]);
+    // line during transit
+    c.strokeStyle = C.ink; c.lineWidth = 1.8; c.beginPath();
+    for (var i5 = 0; i5 < NVL; i5++) { var x5 = X(vGrid[i5]); if (i5 === 0) c.moveTo(x5, Y(cur[i5])); else c.lineTo(x5, Y(cur[i5])); }
+    c.stroke();
+    // label the shadow while it is visible
+    if (bump > 0.02) {
+      var bx = X(st.v), by = Y(1 - DEPTH * Math.max(0, prof[Math.round((st.v + VMAX) / (2 * VMAX) * (NVL - 1))] - bump)) - 10;
+      c.font = "11px " + SANS; c.textAlign = "center"; c.fillStyle = C.ink;
+      c.fillText("shadow", Math.min(Math.max(bx, x0 + 24), x1 - 24), Math.max(by, top + 4));
+    }
     c.fillStyle = C.faint; c.font = "11px " + SANS; c.textAlign = "center";
     c.fillText("← toward us   velocity   away →", (x0 + x1) / 2, h - 10);
     c.save(); c.translate(12, (y0 + y1) / 2); c.rotate(-Math.PI / 2);
-    c.fillText("time →", 0, 0); c.restore();
+    c.fillText("brightness", 0, 0); c.restore();
   }
 
   // --- animation loop ---------------------------------------------------
@@ -263,7 +288,7 @@
   function render() {
     // Sky view shows mid-transit when everything is drawn at once.
     var kSky = still && k === N - 1 ? Math.round(N / 2) : k;
-    drawSky(kSky); drawRV(k); drawShadow(k);
+    drawSky(kSky); drawRV(k); drawLine(kSky);
   }
   function tick(t) {
     if (!start) start = t;

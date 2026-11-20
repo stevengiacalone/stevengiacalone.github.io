@@ -40,7 +40,7 @@ description: "Stellar obliquity measurements of brown dwarfs and hot Jupiters, i
     </div>
     <div class="rm-panel">
       <p class="rm-label">Doppler shadow</p>
-      <canvas id="rm-shadow" class="rm-canvas" role="img" aria-label="The light missing from the star's spectral line over time, plotted against velocity."></canvas>
+      <canvas id="rm-shadow" class="rm-canvas" role="img" aria-label="The star's absorption line plotted against velocity, with the Doppler shadow sliding across it during the transit."></canvas>
     </div>
   </div>
   <figcaption id="rm-caption">
@@ -51,7 +51,6 @@ description: "Stellar obliquity measurements of brown dwarfs and hot Jupiters, i
     light also shows up directly in the shape of the star's spectral lines as a "shadow" that slides across
     the line during the transit; we call this the <strong>Doppler shadow</strong>. Both signals trace the companion's path
     across the spinning star, which reveals the tilt. Choose an orientation above to see how they change.
-    (Simplified model; the companion is drawn larger than life.)
   </figcaption>
 </figure>
 <script src="{{ '/js/rm.js' | relative_url }}" defer></script>
