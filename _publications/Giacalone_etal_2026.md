@@ -3,7 +3,7 @@ title: "The Transition from Giant Planets to Brown Dwarfs beyond 1 au from the S
 collection: publications
 category: manuscripts
 permalink: /publication/Giacalone_etal_2026
-excerpt: 'Finds that the host-star metallicity distribution changes at a companion mass of about 27 Jupiter masses (mass ratios of 0.027) for companions between 1 and 50 au, providing an updated estimate of the boundary between formation via core accretion and gravitational instability.'
+excerpt: 'Finds that the host-star metallicity distribution changes at a companion mass of about 27 Jupiter masses (mass ratios of 0.027) for companions between 1 and 50 au, providing an updated measurement of the boundary between formation via core accretion and gravitational instability.'
 date: 2026-01-08
 venue: 'The Astronomical Journal'
 paperurl: '/files/Giacalone_etal_2026.pdf'
