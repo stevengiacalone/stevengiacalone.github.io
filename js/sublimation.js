@@ -15,14 +15,15 @@
   var SANS = 'system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif';
 
   // Radii in units of the panel half-width.
+  var RTESS = 0.34;   // TESS-sensitive region, same size around both stars
   var SYSTEMS = [
     { star: 0.045, core: [255, 236, 190], halo: [255, 196, 92],
-      rsub: 0.24, rout: 0.95, r0: 0.82, rend: 0.105, rtess: 0.19,
-      tideText: "Tides pull it closer to the star", endText: "It ends up on a close-in orbit",
+      rsub: 0.24, rout: 0.95, r0: 0.82, rend: 0.105, rtess: RTESS,
+      tideText: "Tides pull the planet closer to the star", endText: "The planet ends up on a close-in orbit",
       tessText: "Planets end up where TESS can detect them", seed: 7 },
     { star: 0.075, core: [240, 246, 255], halo: [150, 190, 255],
-      rsub: 0.58, rout: 0.95, r0: 0.82, rend: 0.575, rtess: 0.48,
-      tideText: "Too far away for tides to act", endText: "It is stranded on a wider orbit",
+      rsub: 0.58, rout: 0.95, r0: 0.82, rend: 0.575, rtess: RTESS,
+      tideText: "Too far away for tides to act", endText: "The planet is stranded on a wider orbit",
       tessText: "No planets end up where TESS can detect them", seed: 11 }
   ];
 
@@ -77,8 +78,8 @@
   }
   function phaseText(s, t) {
     if (t < T_FORM) return "A planet forms in the dusty disk";
-    if (t < T_MIG) return "It migrates inward through the disk";
-    if (t < T_PARK) return "It stalls where the dust ends";
+    if (t < T_MIG) return "The planet migrates inward through the disk";
+    if (t < T_PARK) return "The planet stalls where the dust ends";
     if (t < T_DISP) return "The disk disperses";
     if (t < T_TIDE) return s.tideText;
     if (t < T_GONE) return s.endText;
@@ -185,7 +186,7 @@
   function drawStatic() {
     // Final state: planets at their end orbits, disk shown faintly for context.
     for (var i = 0; i < 2; i++) {
-      var s = SYSTEMS[i]; s.trail = []; s.theta = -Math.PI / 4; s.rNow = s.rend;
+      var s = SYSTEMS[i]; s.trail = []; s.theta = Math.PI / 4; s.rNow = s.rend;
       draw(i, T_END - 1, true);
     }
   }
