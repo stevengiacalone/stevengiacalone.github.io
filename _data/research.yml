@@ -1,5 +1,5 @@
 # Research themes. Shown as four equal cards on the home page; each links to
-# its section on /research/ (the `id` is the anchor). Keep blurbs to about
+# its own page at /research/<id>/ (the text lives in research/<id>.html). Keep blurbs to about
 # 30 words so the cards stay the same height.
 - id: obliquities
   title: "Stellar obliquities"

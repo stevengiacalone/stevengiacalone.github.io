@@ -8,6 +8,7 @@ date: 2022-08-01
 venue: 'The Astrophysical Journal Letters'
 paperurl: '/files/Giacalone_etal_2022b.pdf'
 layout: paper
+topic: tess
 first_author: true
 year: 2022
 authors:

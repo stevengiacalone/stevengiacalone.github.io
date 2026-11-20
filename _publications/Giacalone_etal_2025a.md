@@ -8,6 +8,7 @@ date: 2025-07-01
 venue: 'Publications of the Astronomical Society of the Pacific'
 paperurl: '/files/Giacalone_etal_2025a.pdf'
 layout: paper
+topic: obliquities
 first_author: true
 year: 2025
 authors:

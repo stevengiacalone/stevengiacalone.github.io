@@ -8,6 +8,7 @@ date: 2025-01-01
 venue: 'The Astronomical Journal'
 paperurl: '/files/Giacalone_Dressing_2025.pdf'
 layout: paper
+topic: demographics
 first_author: true
 year: 2025
 authors:

@@ -8,6 +8,7 @@ date: 2019-09-01
 venue: 'The Astrophysical Journal'
 paperurl: '/files/Giacalone_etal_2019.pdf'
 layout: paper
+topic: formation
 first_author: true
 year: 2019
 authors:

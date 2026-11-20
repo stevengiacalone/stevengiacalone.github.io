@@ -48,7 +48,7 @@ title: ""
 <ul class="topics">
   {%- for t in site.data.research %}
   <li class="topic">
-    <a href="{{ '/research/' | relative_url }}#{{ t.id }}">
+    <a href="{{ '/research/' | relative_url }}{{ t.id }}/">
       <span class="topic-head"><span class="topic-index">0{{ forloop.index }}</span><span class="topic-title">{{ t.title }}</span></span>
       <span class="topic-role">{{ t.role }}</span>
       <span class="topic-blurb">{{ t.blurb }}</span>
@@ -56,7 +56,6 @@ title: ""
   </li>
   {%- endfor %}
 </ul>
-<p class="more"><a href="{{ '/research/' | relative_url }}">Read more about my research →</a></p>
 
 <h2 id="publications">Publications</h2>
 <p class="section-note">

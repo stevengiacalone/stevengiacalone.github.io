@@ -8,6 +8,7 @@ date: 2017-11-01
 venue: 'The Astronomical Journal'
 paperurl: '/files/Giacalone_etal_2017.pdf'
 layout: paper
+topic: formation
 first_author: true
 year: 2017
 authors:

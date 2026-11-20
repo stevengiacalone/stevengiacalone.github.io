@@ -8,6 +8,7 @@ date: 2021-01-01
 venue: 'The Astronomical Journal'
 paperurl: '/files/Giacalone_etal_2021.pdf'
 layout: paper
+topic: tess
 first_author: true
 year: 2021
 authors:

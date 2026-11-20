@@ -8,6 +8,7 @@ date: 2024-04-01
 venue: 'The Astrophysical Journal Supplement Series'
 paperurl: '/files/Gore_etal_2024.pdf'
 layout: paper
+topic: demographics
 first_author: false
 year: 2024
 authors:

@@ -8,6 +8,7 @@ date: 2017-09-01
 venue: 'The Astrophysical Journal Letters'
 paperurl: '/files/Konigl_etal_2017.pdf'
 layout: paper
+topic: formation
 first_author: false
 year: 2017
 authors:

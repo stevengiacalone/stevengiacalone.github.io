@@ -8,6 +8,7 @@ date: 2024-11-01
 venue: 'The Astronomical Journal'
 paperurl: '/files/Giacalone_etal_2024.pdf'
 layout: paper
+topic: obliquities
 first_author: true
 year: 2024
 authors:

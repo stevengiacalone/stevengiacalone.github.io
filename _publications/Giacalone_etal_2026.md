@@ -8,6 +8,7 @@ date: 2026-01-08
 venue: 'The Astronomical Journal'
 paperurl: '/files/Giacalone_etal_2026.pdf'
 layout: paper
+topic: demographics
 first_author: true
 year: 2026
 authors:

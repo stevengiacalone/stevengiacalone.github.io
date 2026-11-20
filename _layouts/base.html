@@ -8,7 +8,7 @@
   {%- if page.title and page.title != "" -%}
     {%- assign doc_title = page.title | append: " · " | append: site.title -%}
   {%- else -%}
-    {%- assign doc_title = site.title | append: " · Astrophysicist, Caltech" -%}
+    {%- assign doc_title = site.title | append: " · Exoplanet Astrophysicist" -%}
   {%- endif %}
   <title>{{ doc_title }}</title>
   {%- assign desc = page.description | default: page.excerpt | default: site.description | strip_html | strip_newlines %}
@@ -53,10 +53,9 @@
       <a class="masthead-name" href="{{ '/' | relative_url }}">{{ site.author.name }}</a>
       <nav aria-label="Primary">
         <a href="{{ '/#about' | relative_url }}">About</a>
-        <a href="{{ '/research/' | relative_url }}"{% if page.nav == "research" %} aria-current="page"{% endif %}>Research</a>
+        <a href="{{ '/#research' | relative_url }}"{% if page.nav == "research" or page.layout == "research" %} aria-current="page"{% endif %}>Research</a>
         <a href="{{ '/#publications' | relative_url }}"{% if page.nav == "publications" or page.collection == "publications" %} aria-current="page"{% endif %}>Publications</a>
         <a href="{{ '/#contact' | relative_url }}">Contact</a>
-        <a href="{{ site.author.cv | relative_url }}">CV</a>
       </nav>
     </div>
   </header>

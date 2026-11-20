@@ -1,0 +1,26 @@
+---
+layout: research
+title: "Exoplanet discovery with TESS"
+thread: tess
+permalink: /research/tess/
+description: "Exoplanet discovery with TESS and TRICERATOPS, a Bayesian tool for separating real planets from false positives."
+---
+{%- capture pdf %}{{ '/files/' | relative_url }}{% endcapture -%}
+
+<p>
+  When TESS launched in 2018, it was expected to find thousands of transiting planets and thousands of
+  astrophysical false positives, such as eclipsing binaries that mimic planetary signals. Radial-velocity
+  measurements or transit-timing variations can confirm genuine planets, but limited telescope time makes
+  that impossible for most candidates. To address this bottleneck, I developed TRICERATOPS, a Bayesian
+  tool that distinguishes true planets from false positives using TESS photometry alone
+  (<a href="{{ pdf }}Giacalone_etal_2021.pdf">Giacalone et al. 2021</a>).
+</p>
+<p>
+  With TRICERATOPS, I discovered 13 rocky planets that are high-priority targets for JWST atmospheric
+  characterization (<a href="{{ pdf }}Giacalone_etal_2022a.pdf">Giacalone et al. 2022a</a>) and the
+  Neptune-size planet HD 56414 b, one of the only known sub-Jovian planets orbiting an A-type star
+  (<a href="{{ pdf }}Giacalone_etal_2022b.pdf">Giacalone et al. 2022b</a>). The tool is now responsible
+  for more than 200 planet discoveries and is
+  widely used across the exoplanet community.
+</p>
+<p class="callout"><a href="https://github.com/stevengiacalone/triceratops">TRICERATOPS on GitHub →</a></p>
