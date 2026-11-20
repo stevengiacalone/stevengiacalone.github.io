@@ -123,7 +123,6 @@
   }
 
   // --- light curve --------------------------------------------------------
-  var NB = 16;
   function drawLC(k, pts, shape, model, st, dim) {
     var g = fit(cv[k]); if (!g) return; var c = g.c, w = g.w, h = g.h;
     c.clearRect(0, 0, w, h);
@@ -131,20 +130,13 @@
     function X(x) { return x0 + (x1 - x0) * (x + 2) / 4; }
     function Y(y) { return y0 + (y1 - y0) * (YMAX - Math.max(YMIN, Math.min(YMAX, y))) / (YMAX - YMIN); }
     c.strokeStyle = RULE; c.lineWidth = 1; c.strokeRect(x0 + 0.5, y0 + 0.5, x1 - x0, y1 - y0);
-    // raw points
-    pts.forEach(function (p) {
-      c.fillStyle = "rgba(160,160,160,0.42)";
-      c.beginPath(); c.arc(X(p.x), Y(p.y), 1.7, 0, Math.PI * 2); c.fill();
-    });
-    // binned averages
-    var sum = new Array(NB).fill(0), n = new Array(NB).fill(0);
-    pts.forEach(function (p) { var b = Math.min(NB - 1, Math.floor((p.x + 2) / 4 * NB)); sum[b] += p.y; n[b]++; });
-    for (var b = 0; b < NB; b++) {
-      if (n[b] < 3) continue;
-      var bxp = -2 + 4 * (b + 0.5) / NB, byp = sum[b] / n[b];
-      c.beginPath(); c.arc(X(bxp), Y(byp), 3.6, 0, Math.PI * 2);
-      c.fillStyle = INK; c.fill(); c.lineWidth = 1.2; c.strokeStyle = "#0b0c0f"; c.stroke();
-    }
+    // data points with 1-sigma error bars
+    c.strokeStyle = "rgba(170,170,170,0.22)"; c.lineWidth = 1;
+    c.beginPath();
+    pts.forEach(function (p) { var xp = X(p.x); c.moveTo(xp, Y(p.y + SIG)); c.lineTo(xp, Y(p.y - SIG)); });
+    c.stroke();
+    c.fillStyle = "rgba(205,205,205,0.75)";
+    pts.forEach(function (p) { c.beginPath(); c.arc(X(p.x), Y(p.y), 1.9, 0, Math.PI * 2); c.fill(); });
     // best-fit model
     c.strokeStyle = dim ? "rgba(242,154,107,0.55)" : ACCENT; c.lineWidth = 2.2; c.beginPath();
     var xEnd = Math.min(2, st.cursor);
