@@ -199,6 +199,8 @@ a:focus-visible, summary:focus-visible {
 }
 .thread-page .thread-role { margin-bottom: 1.8rem; }
 .thread-page .thread-body > p { font-size: 1.02rem; }
+.thread-page .thread-body > p.intro { font-size: 1.12rem; line-height: 1.65; color: var(--ink); margin-bottom: 1.4rem; }
+.thread-body strong { font-weight: 650; color: var(--ink); }
 .thread-pager {
   display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;
   margin-top: 3rem; padding-top: 1.4rem; border-top: 1px solid var(--rule);

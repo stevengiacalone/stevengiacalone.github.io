@@ -7,42 +7,47 @@ description: "Population-level statistics of planets and brown dwarfs: the giant
 ---
 {%- capture pdf %}{{ '/files/' | relative_url }}{% endcapture -%}
 
-<p>
-  How common planets are, and how that depends on the stars they orbit, holds clues to how they form.
-  I use large, homogeneous surveys to measure these trends across whole populations.
+<p class="intro">
+  A single discovery tells you that a planet exists. A population tells you how planets are made. Just as
+  a census reveals patterns no single household could, counting how often different kinds of planets
+  appear around different kinds of stars lets us test our ideas about planet formation. I use large,
+  carefully controlled surveys to make those counts.
 </p>
 
-<h3>Giant planets versus brown dwarfs</h3>
+<h3>Where giant planets end and brown dwarfs begin</h3>
 <p>
-  Stellar metallicity correlates strongly with how often giant planets and low-mass stellar companions
-  occur. Giant planets are more common around metal-rich stars, whereas low-mass stellar companions
-  appear around stars spanning a wide range of metallicities. This is likely because giant planet
-  formation (gas accreting onto a solid core) works more efficiently in metal-rich environments, while
-  star formation (direct collapse of gas) is largely independent of metal content. In principle, we
-  can tell whether brown dwarfs form like planets or like stars by finding the companion mass at which
-  the host-star metallicity distribution changes. In
-  <a href="{{ pdf }}Giacalone_etal_2026.pdf">Giacalone et al. (2026)</a>, we explore
-  this using the California Legacy Survey, a 30-year radial-velocity survey that detected hundreds of
-  planets and brown dwarfs.
+  There are two ways to build a giant object around a star. In the <strong>bottom-up</strong> route, a rocky
+  core grows first and then sweeps up gas, the way Jupiter is thought to have formed. In the
+  <strong>top-down</strong> route, a clump of gas collapses under its own gravity, the way stars form. The
+  bottom-up route needs plenty of solid material, so it works best around stars rich in heavy elements
+  (astronomers call this <strong>metallicity</strong>). The top-down route barely cares.
+</p>
+<p>
+  That makes a star's metallicity a fingerprint of how its companion formed. Using the California Legacy
+  Survey, a 30-year search that found hundreds of planets and brown dwarfs, I found that companions lighter
+  than about 27 Jupiter masses tend to orbit metal-rich stars, while heavier ones do not. That puts the
+  dividing line between "planet-like" and "star-like" formation well above the 13 Jupiter masses
+  traditionally used to separate planets from brown dwarfs
+  (<a href="{{ pdf }}Giacalone_etal_2026.pdf">Giacalone et al. 2026</a>).
 </p>
 <figure class="fig">
   <img src="{{ pdf }}fig2.png" loading="lazy" alt="Host-star metallicity versus companion mass.">
-  <figcaption>From Giacalone et al. (2026): the stellar metallicity distribution changes at a companion mass of about 27 Jupiter masses. Brown dwarfs less massive than this may have formed like giant planets.</figcaption>
+  <figcaption>Host-star metallicity versus companion mass (Giacalone et al. 2026). Companions to the left of the shaded band orbit metal-rich stars, as planets do; those to the right look more like stellar companions. The switch happens near 27 Jupiter masses, so some objects we call brown dwarfs may have formed like giant planets.</figcaption>
 </figure>
 
-<h3>Small planets around hot stars</h3>
+<h3>Why hot stars have fewer small planets</h3>
 <p>
-  For my PhD thesis, I measured how common small planets are close to A-type stars for the first time.
-  A-type stars are hot stars roughly twice the size of the Sun. Those properties may give their planets
-  different characteristics from planets around Sun-like stars, but they also make planets around them
-  harder to find, so early surveys such as Kepler largely avoided them. Because TESS observes stars
-  across nearly the entire sky, it finally lets us study planets around A-type stars. In
-  <a href="{{ pdf }}Giacalone_Dressing_2025.pdf">Giacalone &amp; Dressing (2025)</a>, I found that
-  planets smaller than Jupiter with orbital periods under 10 days are significantly rarer around A-type
-  stars than around cooler stars. This is likely because dust sublimates farther from these hot stars,
-  which keeps small planets from forming in or migrating to such close orbits.
+  A-type stars are hotter than the Sun and about twice its size. Planets around them are hard to find, so
+  earlier missions such as Kepler largely skipped them. NASA's TESS mission, which watches nearly the whole
+  sky, finally made a proper census possible. For my PhD thesis I searched more than 20,000 of these stars
+  and made the first measurement of how often small, close-in planets orbit them. The answer: rarely.
+  Planets a few times the size of Earth may be more than six times less common around A-type stars than
+  around stars like the Sun
+  (<a href="{{ pdf }}Giacalone_Dressing_2025.pdf">Giacalone &amp; Dressing 2025</a>). One likely reason is
+  that a hot star evaporates the dust close to it, leaving no raw material for small planets to form, or
+  settle, on such tight orbits.
 </p>
 <figure class="fig">
   <img src="{{ pdf }}fig3.png" loading="lazy" alt="Sub-Neptune occurrence rate around M, K, G, F and A-type stars.">
-  <figcaption>From Giacalone &amp; Dressing (2025): the occurrence rate of sub-Neptunes around M-, K-, G-, F-, and A-type stars (left to right). It falls steadily with increasing stellar temperature, suggesting that the temperature of the inner protoplanetary disk helps decide whether planets can migrate close to the star.</figcaption>
+  <figcaption>How common small planets with orbits shorter than 10 days are around stars of increasing temperature, from cool red dwarfs (left) to hot A-type stars (right) (Giacalone &amp; Dressing 2025). The steady decline suggests that conditions close to a hot young star discourage small planets from forming or moving there.</figcaption>
 </figure>

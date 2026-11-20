@@ -7,20 +7,32 @@ description: "Exoplanet discovery with TESS and TRICERATOPS, a Bayesian tool for
 ---
 {%- capture pdf %}{{ '/files/' | relative_url }}{% endcapture -%}
 
-<p>
-  When TESS launched in 2018, it was expected to find thousands of transiting planets and thousands of
-  astrophysical false positives, such as eclipsing binaries that mimic planetary signals. Radial-velocity
-  measurements or transit-timing variations can confirm genuine planets, but limited telescope time makes
-  that impossible for most candidates. To address this bottleneck, I developed TRICERATOPS, a Bayesian
-  tool that distinguishes true planets from false positives using TESS photometry alone
-  (<a href="{{ pdf }}Giacalone_etal_2021.pdf">Giacalone et al. 2021</a>).
+<p class="intro">
+  NASA's Transiting Exoplanet Survey Satellite (TESS), launched in 2018, finds planets by watching for the
+  tiny dip in a star's brightness when a planet passes in front of it. The catch is that many other things
+  can cause the same dip, such as two stars eclipsing each other, or a faint background star whose light is
+  blended in with the target. Confirming each candidate with large telescopes is slow and expensive, and
+  TESS produces thousands of them.
 </p>
+
+<h3>TRICERATOPS: telling real planets from impostors</h3>
 <p>
-  With TRICERATOPS, I discovered 13 rocky planets that are high-priority targets for JWST atmospheric
-  characterization (<a href="{{ pdf }}Giacalone_etal_2022a.pdf">Giacalone et al. 2022a</a>) and the
-  Neptune-size planet HD 56414 b, one of the only known sub-Jovian planets orbiting an A-type star
-  (<a href="{{ pdf }}Giacalone_etal_2022b.pdf">Giacalone et al. 2022b</a>). The tool is now responsible
-  for more than 200 planet discoveries and is
-  widely used across the exoplanet community.
+  To clear that bottleneck I built TRICERATOPS, a statistical tool that weighs every plausible explanation
+  for a signal, including nearby stars that could be the real source, and calculates the probability that it
+  comes from a genuine planet. It needs only TESS data and information about the surrounding stars, and when
+  it was released it was the only TESS tool that accounted for false alarms from neighboring stars
+  (<a href="{{ pdf }}Giacalone_etal_2021.pdf">Giacalone et al. 2021</a>). TRICERATOPS is now credited with
+  more than 200 planet discoveries and is widely used across the exoplanet community.
+</p>
+
+<h3>What it has found</h3>
+<p>
+  Among its discoveries are 13 hot, potentially rocky planets that are prime targets for the James Webb Space
+  Telescope to study the surfaces and atmospheres of rocky worlds
+  (<a href="{{ pdf }}Giacalone_etal_2022a.pdf">Giacalone et al. 2022a</a>). Another is HD 56414 b, a
+  Neptune-size planet orbiting a young A-type star, one of the hottest stars known to host a planet smaller
+  than Jupiter. It suggests that the "hot Neptune desert," a striking shortage of Neptune-size planets very
+  close to their stars, extends to hot stars too
+  (<a href="{{ pdf }}Giacalone_etal_2022b.pdf">Giacalone et al. 2022b</a>).
 </p>
 <p class="callout"><a href="https://github.com/stevengiacalone/triceratops">TRICERATOPS on GitHub →</a></p>
