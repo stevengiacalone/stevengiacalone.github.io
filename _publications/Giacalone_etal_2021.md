@@ -3,7 +3,7 @@ title: "Vetting of 384 TESS Objects of Interest with TRICERATOPS and Statistical
 collection: publications
 category: manuscripts
 permalink: /publication/Giacalone_etal_2021
-excerpt: 'Presents TRICERATOPS, a statistical validation tool for transiting planet candidates, and analyzes hundreds of planet candidates detected by the TESS mission.'
+excerpt: "Introduces TRICERATOPS, a Bayesian tool that separates real planets from false positives using TESS data alone and, at the time, the only one to model signals from nearby contaminating stars. The tool has since been used to discover more than 100 planets."
 date: 2021-01-01
 venue: 'The Astronomical Journal'
 paperurl: '/files/Giacalone_etal_2021.pdf'

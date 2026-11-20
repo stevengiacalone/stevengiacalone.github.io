@@ -3,7 +3,7 @@ title: "Validation of 13 Hot and Potentially Terrestrial TESS Planets"
 collection: publications
 category: manuscripts
 permalink: /publication/Giacalone_etal_2022a
-excerpt: 'Reports the discovery of 13 hot, likely rocky planets that are ideal targets for thermal emission observations with JWST.'
+excerpt: "Validates 13 hot, potentially rocky TESS planets that are prime JWST targets for probing the surfaces and atmospheres of terrestrial worlds, including seven ultra-short-period planets and one orbiting the youngest known solar twin with a planet."
 date: 2022-02-01
 venue: 'The Astronomical Journal'
 paperurl: '/files/Giacalone_etal_2022a.pdf'

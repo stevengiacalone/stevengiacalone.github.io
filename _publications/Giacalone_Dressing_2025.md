@@ -3,7 +3,7 @@ title: "Small and Close-in Planets are Uncommon Around A-type Stars"
 collection: publications
 category: manuscripts
 permalink: /publication/Giacalone_Dressing_2025
-excerpt: 'Reports the occurrence rate of planets smaller than Saturn around A-type stars for the first time.'
+excerpt: "Makes the first measurement of how often small, close-in planets orbit A-type stars. A TESS search of more than 20,000 of these hot stars turns up no reliable small planets, implying that close-in sub-Neptunes may be more than six times rarer around them than around Sun-like stars."
 date: 2025-01-01
 venue: 'The Astronomical Journal'
 paperurl: '/files/Giacalone_Dressing_2025.pdf'

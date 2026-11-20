@@ -3,7 +3,7 @@ title: "Dust Transport and Processing in Centrifugally Driven Protoplanetary Dis
 collection: publications
 category: manuscripts
 permalink: /publication/Giacalone_etal_2019
-excerpt: 'Shows that the thermal processing of silicate grains, which are lifted vertically out of protoplanetary disks and transported radially outwards due to magnetocentrifugal winds, can reproduce the crystallinity fraction of grains in the outer regions of observed disks.'
+excerpt: "Explains why crystalline dust, which can only form close to a young star, turns up in the cold outer reaches of protoplanetary disks: magnetocentrifugal winds lift grains from the hot inner disk and carry them outward, reproducing the crystallinity observed in T Tauri and Herbig Ae disks."
 date: 2019-09-01
 venue: 'The Astrophysical Journal'
 paperurl: '/files/Giacalone_etal_2019.pdf'

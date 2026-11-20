@@ -3,7 +3,7 @@ title: "On the Origin of Dynamically Isolated Hot Earths"
 collection: publications
 category: manuscripts
 permalink: /publication/Konigl_etal_2017
-excerpt: 'Demonstrates that close-in, dynamically isolated, Earth-size planets may be the cores of stripped gas giants.'
+excerpt: "Proposes that isolated, Earth-size planets on roughly one-day orbits are the exposed rocky cores of giant planets stripped of their gas after migrating too close to their stars, which explains why they are about as common as hot Jupiters."
 date: 2017-09-01
 venue: 'The Astrophysical Journal Letters'
 paperurl: '/files/Konigl_etal_2017.pdf'

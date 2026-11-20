@@ -3,7 +3,7 @@ title: "A Test of the High-eccentricity Migration Scenario for Close-in Planets"
 collection: publications
 category: manuscripts
 permalink: /publication/Giacalone_etal_2017
-excerpt: 'Demonstrates that high-eccentricity migration can produce close-in exoplanets with the same eccentricities and orbital periods as the observed population.'
+excerpt: "Shows that high-eccentricity migration reproduces the eccentricities of close-in giant planets, pins down how efficiently tides circularize their orbits, and finds tentative evidence that the same process shapes planets down to the mass of Neptune."
 date: 2017-11-01
 venue: 'The Astronomical Journal'
 paperurl: '/files/Giacalone_etal_2017.pdf'

@@ -3,7 +3,7 @@ title: "Metallicities and Refined Stellar Parameters for 52 Cool Dwarfs with Tra
 collection: publications
 category: manuscripts
 permalink: /publication/Gore_etal_2024
-excerpt: 'Reports compositions and updated properties for 52 M dwarfs and K dwarfs with confirmed planets and transiting planet candidates.'
+excerpt: "Delivers precise metallicities and refined stellar and planet properties for 52 K2 and TESS planetary systems around M and K dwarfs, expanding the sample for testing how low-mass stars shape the planets they host."
 date: 2024-04-01
 venue: 'The Astrophysical Journal Supplement Series'
 paperurl: '/files/Gore_etal_2024.pdf'

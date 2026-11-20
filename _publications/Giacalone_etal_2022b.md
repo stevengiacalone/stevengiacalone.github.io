@@ -3,7 +3,7 @@ title: "HD 56414 b: A Warm Neptune Transiting an A-type Star"
 collection: publications
 category: manuscripts
 permalink: /publication/Giacalone_etal_2022b
-excerpt: 'Reports the discovery of a rare Neptune-size planet orbiting an A-type star.'
+excerpt: "Discovers HD 56414 b, a Neptune-size planet orbiting a young A-type star that is one of the hottest known hosts of a sub-Jovian planet, and shows that the hot Neptune desert likely extends to these hot stars."
 date: 2022-08-01
 venue: 'The Astrophysical Journal Letters'
 paperurl: '/files/Giacalone_etal_2022b.pdf'

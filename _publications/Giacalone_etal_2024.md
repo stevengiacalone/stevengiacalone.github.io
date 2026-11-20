@@ -3,7 +3,7 @@ title: "The OATMEAL Survey. I. Low Stellar Obliquity in the Transiting Brown Dwa
 collection: publications
 category: manuscripts
 permalink: /publication/Giacalone_etal_2024
-excerpt: 'Reports the angle between the spin axis of the star GPX-1 and the orbital axis of its transiting brown dwarf companion.'
+excerpt: "Launches the OATMEAL survey of brown dwarf orbits with a surprising first result: the transiting brown dwarf GPX-1 b orbits in line with its star's equator, even though hot Jupiters around similar stars are often badly misaligned."
 date: 2024-11-01
 venue: 'The Astronomical Journal'
 paperurl: '/files/Giacalone_etal_2024.pdf'

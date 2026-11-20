@@ -3,7 +3,7 @@ title: "A Hot Jupiter with a Retrograde Orbit Around a Sun-like Star and a Toy M
 collection: publications
 category: manuscripts
 permalink: /publication/Giacalone_etal_2025a
-excerpt: 'Reports the angle between the spin axis of the star KELT-23A and the orbital axis of its transiting hot Jupiter companion. Also presents a toy model explaining the orbital architectures of hot Jupiters in binary star systems.'
+excerpt: "Finds a hot Jupiter orbiting backward relative to the spin of its Sun-like star, a rare outlier that strains tidal theory, and presents a toy model showing why hot Jupiters in wide binary systems tend to end up on either aligned or polar orbits."
 date: 2025-07-01
 venue: 'Publications of the Astronomical Society of the Pacific'
 paperurl: '/files/Giacalone_etal_2025a.pdf'
