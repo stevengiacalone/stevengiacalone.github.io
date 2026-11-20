@@ -19,6 +19,44 @@ description: "Stellar obliquity measurements of brown dwarfs and hot Jupiters, i
   signs of a dramatic past.
 </p>
 
+<figure class="rm-demo" aria-labelledby="rm-caption">
+  <div class="rm-controls">
+    <div class="rm-buttons" role="group" aria-label="Orbit orientation">
+      <button type="button" data-lambda="0" aria-pressed="true">Aligned <span>0°</span></button>
+      <button type="button" data-lambda="45" aria-pressed="false">Tilted <span>45°</span></button>
+      <button type="button" data-lambda="90" aria-pressed="false">Polar <span>90°</span></button>
+      <button type="button" data-lambda="180" aria-pressed="false">Retrograde <span>180°</span></button>
+    </div>
+    <button type="button" id="rm-play" class="rm-play">Pause</button>
+  </div>
+  <div class="rm-grid">
+    <div class="rm-panel">
+      <p class="rm-label">The transit</p>
+      <canvas id="rm-sky" class="rm-canvas rm-square" role="img" aria-label="A companion crossing a rotating star. The half of the star turning toward us is shaded blue, the half turning away is shaded red."></canvas>
+    </div>
+    <div class="rm-panel">
+      <p class="rm-label">Rossiter–McLaughlin effect</p>
+      <canvas id="rm-rv" class="rm-canvas" role="img" aria-label="The star's measured velocity shift over time during the transit."></canvas>
+    </div>
+    <div class="rm-panel">
+      <p class="rm-label">Doppler shadow</p>
+      <canvas id="rm-shadow" class="rm-canvas" role="img" aria-label="The light missing from the star's spectral line over time, plotted against velocity."></canvas>
+    </div>
+  </div>
+  <p class="rm-readout" id="rm-readout" aria-live="polite"></p>
+  <figcaption id="rm-caption">
+    How the tilt is measured. A spinning star has one side turning toward us, whose light is slightly
+    blueshifted, and one side turning away, whose light is redshifted. As a companion crosses the star it
+    blocks a little of that light. Blocking the side turning toward us makes the star seem to move away from
+    us for a moment, and vice versa: this is the <strong>Rossiter–McLaughlin effect</strong>. The same missing
+    light also shows up directly in the shape of the star's spectral lines as a small gap that slides across
+    the line during the transit: the <strong>Doppler shadow</strong>. Both signals trace the companion's path
+    across the spinning star, which reveals the tilt. Choose an orientation above to see how they change.
+    (Simplified model; the companion is drawn larger than life.)
+  </figcaption>
+</figure>
+<script src="{{ '/js/rm.js' | relative_url }}" defer></script>
+
 <h3>Where did close-in brown dwarfs come from?</h3>
 <p>
   Brown dwarfs, objects many tens of times more massive than Jupiter, are too heavy to be ordinary planets
@@ -49,7 +87,3 @@ description: "Stellar obliquity measurements of brown dwarfs and hot Jupiters, i
   tend to end up either aligned or on polar orbits
   (<a href="{{ pdf }}Giacalone_etal_2025a.pdf">Giacalone et al. 2025</a>).
 </p>
-<figure class="fig">
-  <img src="{{ pdf }}fig1.png" loading="lazy" alt="Doppler shadow of GPX-1 b and the Rossiter–McLaughlin signal of KELT-23A b.">
-  <figcaption>How the tilt is measured. As a companion crosses its spinning star, it blocks light from the part of the star turning toward us or away from us, leaving a telltale pattern in the star's spectrum. Left: this "Doppler shadow" for GPX-1 b (Giacalone et al. 2024). Right: the same effect, known as the Rossiter–McLaughlin effect, for KELT-23A b (Giacalone et al. 2025).</figcaption>
-</figure>
