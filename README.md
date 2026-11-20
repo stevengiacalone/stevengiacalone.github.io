@@ -48,6 +48,17 @@ Abstract text…
 Papers are grouped by `year` and sorted by `date`, newest first. `S. Giacalone` is bolded
 automatically.
 
+## Dark versions of figures
+
+Figures on the research pages use dark-theme copies (`files/*-dark.png`) of the
+original light figures. To convert a new one (needs Python with numpy, Pillow
+and scikit-image):
+
+```
+python3 scripts/darkfig.py files/fig.png files/fig-dark.png              # line/point plots
+python3 scripts/darkfig.py files/fig.png files/fig-dark.png --invert-all # plots with a colour scale
+```
+
 ## Old URLs
 
 `/publications/`, `/contact/` and `/about/` redirect to the matching section of the home page;
