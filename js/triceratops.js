@@ -47,22 +47,18 @@
 
   // Timeline
   var CYCLE = 7000, VERDICT = 5500, T_END = CYCLE + VERDICT;
-  var W0 = 0.18, W1 = 0.82;                       // share of the cycle spent on the transit window
   var A_ORB = 3.0, K = 0.1;                       // planet orbit (star radii), radius ratio
   var DP = Math.asin((1 + K) / A_ORB) / (2 * Math.PI);   // half-duration in orbital phase
-  function orbitalPhase(u) {                      // u in [0,1) -> orbital phase p, slowed during transit
-    var p0 = 0.5 - 2 * DP, p1 = 0.5 + 2 * DP;
-    if (u < W0) return p0 * u / W0;
-    if (u < W1) return p0 + (p1 - p0) * (u - W0) / (W1 - W0);
-    return p1 + (1 - p1) * (u - W1) / (1 - W1);
-  }
+  // Each loop covers just the stretch of orbit around the transit, at constant
+  // speed: it starts shortly before first contact and ends after last contact.
+  var P0 = 0.5 - 2 * DP, P1 = 0.5 + 2 * DP;
+  function orbitalPhase(u) { return P0 + (P1 - P0) * u; }
 
   // State at time t: which points are visible, and the cursor position.
   function state(t) {
-    if (t >= CYCLE) return { cursor: Infinity, p: 0.5, verdict: true };
+    if (t >= CYCLE) return { cursor: Infinity, p: P1, verdict: true };
     var u = t / CYCLE;
-    var cursor = u < W0 ? -Infinity : u >= W1 ? Infinity : -2 + 4 * (u - W0) / (W1 - W0);
-    return { cursor: cursor, p: orbitalPhase(u), verdict: false };
+    return { cursor: -2 + 4 * u, p: orbitalPhase(u), verdict: false };
   }
   var PTS = [];
   for (var jj = 0; jj < NT; jj++) for (var ii = 0; ii < NP; ii++) PTS.push({ x: xOf(jj, ii), y: DATA[jj][ii] });
@@ -120,15 +116,10 @@
     var phi = 2 * Math.PI * (p - 0.5), sx = Math.sin(phi) * ap / 2, cz = Math.cos(phi);
     var s1 = { x: bx - sx, y: cy - e * cz, r: r1, col: "#ffb27f", z: -cz };
     var s2 = { x: bx + sx, y: cy + e * cz, r: r2, col: "#e8734f", z: cz };
-    // "one TESS pixel" box around everything
-    var pad = 14, L = tx - Rs - pad, Rr = Math.min(w - 6, bx + ap / 2 + r1 + pad), T = cy - Rs - 26, B = cy + Rs + 24;
-    c.strokeStyle = "rgba(255,255,255,0.22)"; c.setLineDash([4, 4]); c.lineWidth = 1;
-    c.strokeRect(L, T, Rr - L, B - T); c.setLineDash([]);
-    label(c, "one TESS pixel", L + 6, T + 13, "left");
     disk(c, tx, cy, Rs, rgba(STAR, 1));
-    label(c, "target star", tx, cy + Rs + 15);
+    label(c, "target star", tx, cy - Rs - 8);
     [s1, s2].sort(function (a, b) { return a.z - b.z; }).forEach(function (s) { disk(c, s.x, s.y, s.r, s.col); });
-    label(c, "eclipsing pair", bx, cy + Rs + 15, "center", "#ffb27f");
+    label(c, "eclipsing pair", bx, cy - Rs - 8, "center", "#ffb27f");
   }
 
   // --- light curve --------------------------------------------------------
